@@ -12,7 +12,8 @@
 
     <ul>
         <li id="bigFont">Gombi's page</li>
-        <li><a href="#">Home</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calc.html">Calc</a></li>
         <li><a href="time.html">Time</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="#home">About</a></li>
@@ -27,17 +28,30 @@
 
             <h1>Welcome on my page !</h1>
             <h2>This is an exercise page, where I testing my abilities.</h2>
+            <div class="sandbox">
+                <h2 id="wcm"> Welcome back </h2> <br>
+                <form action="/" name="login">
+                    <label for="user">User</label><br>
+                    <input type="text" id="user" name="user" value=""><br>
+                    <label for="passwd">Password</label><br>
+                    <input type="password" id="passwd" name="passwd" value=""><br><br>
+                    <button id="loginBTN" type="button" onclick="logins()">Login</button>
+                    <button id="regBTN" type="button" onclick="logins()">Register</button>
+                    <br><br>
+                </form>
+            </div>
             <p id="simpleText">
                 What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially unchanged.
+                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+                more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
             <button id="btn" type="button" onclick="modify()">Delete Paragraph</button>
 
-        </div>
-
-
+            </div>
 
         <div class="column right" style="background-color:rgb(58, 51, 51)"></div>
 
