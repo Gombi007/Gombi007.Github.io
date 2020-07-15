@@ -1,137 +1,47 @@
+/*Full page background*/
 html{background-color:rgb(58, 51, 51); }
+
 #demo {font-size: 24px; font-family: Verdana, Geneva, Tahoma, sans-serif;}
-#bigFont {font-size: 30px; font-family: Verdana, Geneva, Tahoma, sans-serif; padding: 5px;  padding-right: 20px; text-shadow: 2px 2px 4px #000000;} 
+#menuLabel {font-size: 30px; font-family: Verdana, Geneva, Tahoma, sans-serif; padding: 5px;  padding-right: 60px; text-shadow: 2px 2px 4px #000000;} 
 #simpleText {font-family:Arial, Helvetica, sans-serif; text-align: left; margin: 50px;}
-#btn{font-size: 25px; background-color: rgb(18, 216, 100); border-radius: 10px; color: aliceblue; border: 2px solid white; padding: 5px; outline: none; }
-#btn:hover{color: red; border: 2px solid red;}
 
+/* All buttons style on page*/
+#btn {font-size: x-large; background-color: black; outline: none; color: aqua; border: 2px solid aqua;}
+#btn:hover {color: red; border: 2px solid red;}
 
-
-/* Menu */
-ul {
- list-style-type: none;
- margin: 0;
- padding: 0;
- overflow: hidden;
- background-color: rgb(18, 216, 100);
- border: 3px solid;
-}
-
-li {
-float: left;
-}
-
-li a {display: block;
-    color: black;
-    font-size:24px;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-
-li a:hover {
-    color:  rgb(18, 216, 100);
-    background-color:rgb(58, 51, 51)
-}
-
-
-
+/* Top menu*/
+ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: rgb(18, 216, 100); border: 3px solid;}
+li { float: left; }
+li a { display: block; color: black; font-size:24px; text-align: center; padding: 14px 20px; text-decoration: none; }
+li a:hover { color:  rgb(18, 216, 100); background-color:rgb(58, 51, 51) }
 
 /* Content div 3 column*/
-.column {      
-    float: left;
-    height:max-content;
-    margin: 10px;    
-}
-.left, .right {width: 10%; }
-  
-.middle {
-    color: white;
-    background-color:black;
-    width: 75%;
-    padding: 10px;
-    box-shadow: 1px 1px 4px 4px rgb(18, 216, 100);
-    text-align: center;
-
-}
-
-
-
+.column { margin-right: auto; margin-left: auto; height:max-content;}
+.middle { color: white; background-color:black; width: 80%;  box-shadow: 1px 1px 4px 4px rgb(18, 216, 100); text-align: center; padding: 10px; margin-top: 8px;}
+.left, .right {width:20%;}
 
 /* Calculator style */
-#calc{
-
-width: max-content;
-height: max-content;
-background-color:rgb(18, 216, 100);
-margin-left: auto;
-margin-right: auto;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-font-size: large;
-}
-
-#calcButton button{
-font-size: 50px;
-background-color: black;
-color:rgb(18, 216, 100); 
-width: 23%;
-outline: none;
-}
-
-#calcButton button:hover{
-    color: red;
-}
-
-
-#calcInput {
-background-color: #000000;
-font-size: 30px;
-margin: 10px;
-color: white;
-}
-
+#calcStyle { width: max-content; height: max-content;  background-image:url(Pictures/terrain_pattern.jpg); margin-left: auto; margin-right: auto; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: large; border: 7px outset #00791e; }
+#calcBtn button { font-size: 35px; background-color: black; color:rgb(18, 216, 100); width: 23%; outline: none;}
+#calcBtn button:hover { color: red;}
+#calcInput { background-color: #000000; font-size: 27px; margin: 10px; color: white}
+#calcLabel {padding-top: 3px; color: #000000; font-family: "Comic Sans MS", cursive, sans-serif; font-size: xxx-large;} 
 
 /* Login form  */
-.sandbox{
-
-box-shadow: 1px 1px 4px 4px rgb(18, 216, 100);
-color: aqua;
-margin-left: auto;
-margin-right: auto;
-font-size:x-large;
-width: 20%;
-}
-
-.sandbox button{
-font-size: x-large;
-background-color: black;
-outline: none;
-color: aqua;
-border: 2px solid aqua;
-}
-.sandbox button:hover,{color: red; border: 2px solid red;}
+.formBox{ box-shadow: 2px 2px 2px 4px  rgb(18, 216, 100); color: aqua; margin-left: auto; margin-right: auto; font-size: x-large; width: 460px; padding-left: 10px; padding-right: 10px;}
+#user, #passwd {background-color: aqua; width: 90%; font-size: x-large;}
 
 /* Gallery page */
-#yesBTN, #noBTN{
-    font-size: xxx-large;
-    background-color: black;
-    outline: none;
-    color: aqua;
-    border: 2px solid aqua;
-    margin: 15px;
-    }
-#yesBTN:hover, #noBTN:hover{color: red; border: 2px solid red;}
-.gallery #pic{margin-left: 10%; margin-right: 10%;} 
+.sorryDIV {font-size: xx-large; color:white; display: none;}
+.galleryDIV {display:none; font-size: x-large;}
+.galleryDIV img {width:95%; border: 2px solid rgb(18, 216, 100);}
 
-#galleryDIV{display: none;}
-#galleryDIV img {
-    
-    border: 1px solid  rgb(18, 216, 100);
-    margin: 10px;
-    border-radius: 4px;
-    padding: 5px;
-    width: 600px;
-    height: 400px;
+/*Content on smartphones*/
+@media screen and (max-width: 479px) {
+    .middle {width: 95%;}  
+     #menuLabel{width: 100%; text-align: center; font-size: 18px;}
+     li a{font-size: 18px; font-weight: bolder;}
+     .galleryDIV img {width: 100%;}
+     .formBox {width: 95%;}
+     }
 
-}
-#sorryDIV{font-size: x-large; color:white; display: none;}

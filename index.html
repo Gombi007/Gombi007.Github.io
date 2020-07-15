@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Javascript exercise</title>
+
 </head>
 
 <body>
 
     <ul>
-        <li id="bigFont">Gombi's page</li>
+        <li id="menuLabel">Gombi's page</li>
         <li><a href="index.html">Home</a></li>
         <li><a href="calc.html">Calc</a></li>
         <li><a href="time.html">Time</a></li>
@@ -21,25 +22,23 @@
     <div class="row">
 
         <div class="column left" style="background-color:rgb(58, 51, 51)"> </div>
-
-
-
         <div class="column middle">
 
             <h1>Welcome on my page !</h1>
-            <h2>This is an exercise page, where I testing my abilities.</h2>
-            <div class="sandbox">
-                <h2 id="wcm"> Welcome back </h2> <br>
+            
+            <div class="formBox">
+                <h2 id="formLabel"> Please Login or Register</h2> <br>
                 <form action="/" name="login">
                     <label for="user">User</label><br>
                     <input type="text" id="user" name="user" value=""><br>
                     <label for="passwd">Password</label><br>
                     <input type="password" id="passwd" name="passwd" value=""><br><br>
-                    <button id="loginBTN" type="button" onclick="logins()">Login</button>
-                    <button id="regBTN" type="button" onclick="logins()">Register</button>
+                    <button id="btn" type="button" onclick="logins()">Login</button>
+                    <button id="btn" type="button" onclick="logins()">Register</button>
                     <br><br>
                 </form>
             </div>
+            <h2>This is an exercise page, where I testing my abilities.</h2>
             <p id="simpleText">
                 What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
