@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Javascript exercise</title>
+</head>
+
+<body>
+
+    <ul>
+        <li id="menuLabel"><a href="index.html">Gombi's page</a></li>
+        <li><a href="calc.html">Sandbox</a></li>
+        <li><a href="time.html">Timer</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li id="login"><a href="login.html">Login</a></li>
+    </ul>
+    <div class="row">
+
+        <div class="column left" style="background-color:rgb(58, 51, 51)"> </div>
+
+        <div class="column middle">
+
+            <div class="formBox">
+                <h2 id="formLabel"> Please <br> Login or Register</h2> <br>
+                <form action="/" name="login">
+                    <label for="user">User</label><br>
+                    <input type="text" id="user" name="user" value=""><br>
+                    <label for="passwd">Password</label><br>
+                    <input type="password" id="passwd" name="passwd" value=""><br><br>
+                    <button id="btn" type="button" onclick="logins()">Login</button>
+                    <button id="btn" type="button" onclick="logins()">Register</button>
+                    <br><br>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="column right" style="background-color:rgb(58, 51, 51)"></div>
+
+    </div>

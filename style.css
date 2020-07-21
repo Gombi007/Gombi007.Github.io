@@ -10,21 +10,24 @@ html{background-color:rgb(58, 51, 51);  font-family: Roboto, sans-serif;}
 @font-face {font-family: Shadows_Into_Light; src: url(Fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf);}
 
 #demo {font-family: Press_Start_2P, sans-serif; font-size: 20px;}
-#menuLabel {font-size: 30px; font-family: Shadows_Into_Light , sans-serif;padding-right: 60px; text-shadow: 2px 2px 4px black} 
+#login{float: right; font-size: 30px; padding-right: 30px;}
+#menuLabel a {font-size: xx-large; font-family: Indie_Flower, sans-serif; padding-right: 100px; text-shadow: 3px 3px 5px black;} 
 #simpleText {text-align: left; margin: 50px; font-size: large;}
+.contentIMG {width: 300px;}
+
 
 /* All buttons style on page*/
 #btn {font-size: x-large; background-color: black; outline: none; color: aqua; border: 2px solid aqua;}
 #btn:hover {color: red; border: 2px solid red;}
 
 /* Top menu*/
-ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: rgb(18, 216, 100);  box-shadow: 1px 1px 4px 4px rgb(18, 216, 100); font-family: Bungee_Inline, sans-serif;}
+ul { list-style-type: none; margin: 0px; padding: 0px; padding-top: 5px; overflow: hidden; background-color: rgb(18, 216, 100); box-shadow: 1px 1px 4px 4px rgb(18, 216, 100); font-family: Indie_Flower, sans-serif; position: fixed; width: 100%; top: 0;}
 li { float: left;}
-li a { display: block; color: black; font-size: 22px; text-align: center; padding: 2px 10px ; text-decoration: none; }
+li a { display: block; color: black; font-size: xx-large; text-align: center; padding: 2px 15px ; text-decoration: none; text-shadow: 0px 0px 2px black;}
 li a:hover { color:  rgb(18, 216, 100); background-color:rgb(58, 51, 51); border-radius: 20px; }
 
 /* Content div 3 column*/
-.column { margin-right: auto; margin-left: auto; height:max-content;}
+.column { margin-right: auto; margin-left: auto; height:max-content; margin-top: 72px;}
 .middle { color: white; background-color:black; width: 80%;  box-shadow: 1px 1px 4px 4px rgb(18, 216, 100); text-align: center; padding: 10px; margin-top: 15px;}
 .left, .right {width:20%;}
 
@@ -36,8 +39,8 @@ li a:hover { color:  rgb(18, 216, 100); background-color:rgb(58, 51, 51); border
 #calcLabel {color:black; text-shadow: 5px 2px 3px white; font-family: Press_Start_2P, sans-serif; font-size: x-large;} 
 
 /* Login form  */
-.formBox{ box-shadow: 2px 2px 2px 4px  rgb(18, 216, 100); color: aqua; margin-left: auto; margin-right: auto; font-size: x-large; width: 460px; padding-left: 10px; padding-right: 10px;}
-#user, #passwd {background-color: aqua; width: 90%; font-size: x-large;}
+.formBox{ margin-left: auto; margin-right: auto; font-size: x-large; width: 300px; padding-left: 10px; padding-right: 10px;}
+#user, #passwd {width: 90%; font-size: x-large;}
 
 /* Gallery page */
 .sorryDIV {font-size: xx-large; color:white; display: none; }
@@ -56,11 +59,14 @@ li a:hover { color:  rgb(18, 216, 100); background-color:rgb(58, 51, 51); border
 
 
 /*Content on smartphones*/
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 815px) {
     .middle {width: 95%;}  
-     #menuLabel{width: 100%; text-align: center; font-size: 35px;}
-     li a {font-size: 17px;  padding: 2px 5px; }
+     #menuLabel {width: 100%; margin-left: 0; margin-right: 0;}
+     #menuLabel a { font-size:40px; }
+     .column {padding-top: 35px;}
+     li a {font-size: 20px;  padding: 2px 7px; }
      li a:active {background-color:  rgb(18, 216, 100);}
+     #login { padding-right: 2px; }
      .galleryDIV img {width: 100%;}
      .formBox {width: 93%;}
      #calcBtn button {font-size: 35px;}

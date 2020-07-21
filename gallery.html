@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Javascript exercise</title>
- </head>
+</head>
 
 <body>
 
     <ul>
-        <li id="menuLabel">Gombi's page</li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="calc.html">Calc</a></li>
-        <li><a href="time.html">Time</a></li>
+        <li id="menuLabel"><a href="index.html">Gombi's page</a></li>
+        <li><a href="calc.html">Sandbox</a></li>
+        <li><a href="time.html">Timer</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
+        <li id="login"><a href="login.html">Login</a></li>
     </ul>
     <div class="row">
 
@@ -26,30 +26,32 @@
 
         <div class="column middle">
 
-           
-                <h1>Gallery</h1>
-                <h2> Are you older than 18 years old? </h2>
-                <img src="Pictures/eighteen.png" alt="eighteen"> <br><br>
-                <button id="btn" type="button" onclick="galleryY()">Yes</button>
-                <button id="btn" type="button" onclick="galleryN()">No</button><br><br>
 
-                <div class="sorryDIV" id="sorryDIV"> <a href=index.html>  <img src="/Pictures/sorry.png" alt="sorry"><br> Sorry, please visit other content. </a> </div>
+            <h1>Gallery</h1>
+            <h2> Are you older than 18 years old? </h2>
+            <img src="Pictures/eighteen.png" alt="eighteen"> <br><br>
+            <button id="btn" type="button" onclick="galleryY()">Yes</button>
+            <button id="btn" type="button" onclick="galleryN()">No</button><br><br>
 
-                <div class="galleryDIV" id="galleryDIV"><p>Lions. What did you expect? :)</p><br>
+            <div class="sorryDIV" id="sorryDIV"> <a href=index.html> <img src="/Pictures/sorry.png" alt="sorry"><br>
+                    Sorry, please visit other content. </a> </div>
+
+            <div class="galleryDIV" id="galleryDIV">
+                <p>Lions. What did you expect? :)</p><br>
                 <img src="/Pictures/lion1.jpg" alt="lion1">
                 <img src="/Pictures/lion2.jpg" alt="lion2">
                 <img src="/Pictures/lion3.jpg" alt="lion3">
                 <img src="/Pictures/lion4.jpg" alt="lion4">
                 <img src="/Pictures/lion5.jpg" alt="lion5">
-                
-                </div>
 
-        
+            </div>
 
-        <div class="column right" style="background-color:rgb(58, 51, 51)"></div>
 
-    </div>
-    <script src="main.js"></script>
+
+            <div class="column right" style="background-color:rgb(58, 51, 51)"></div>
+
+        </div>
+        <script src="main.js"></script>
 </body>
 
 </html>
