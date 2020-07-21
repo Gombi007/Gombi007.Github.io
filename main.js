@@ -1,18 +1,20 @@
 function modify() {
-    document.getElementById("simpleText").innerHTML = "";
-}
+    let delContent = document.getElementById("simpleText");
+    let btnLabel = document.getElementById("del");
 
-function logins() {
-    let user = document.getElementById("user").value;
-    if (user == "admin") {
-        document.getElementById("wcm").innerHTML = "Welcome back" + "<br>" + user;
+
+    if (delContent.style.display === "none") {
+        delContent.style.display = "block";
+    } else {
+        delContent.style.display = "none";
     }
 }
+
 
 function galleryY() {
     let gD = document.getElementById("galleryDIV");
     let sD = document.getElementById("sorryDIV");
-        if (gD.style.display = "none") {
+    if (gD.style.display = "none") {
         gD.style.display = "block";
         sD.style.display = "none";
     }
@@ -21,7 +23,7 @@ function galleryY() {
 function galleryN() {
     let gD = document.getElementById("galleryDIV");
     let sD = document.getElementById("sorryDIV");
-        if (sD.style.display = "none") {
+    if (sD.style.display = "none") {
         sD.style.display = "block";
         gD.style.display = "none";
     }
