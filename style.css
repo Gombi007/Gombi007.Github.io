@@ -1,5 +1,5 @@
 /*Full page background*/
-html{background-color:rgb(58, 51, 51);  font-family: Roboto, sans-serif;}
+html{background-color:black;  font-family: Roboto, sans-serif;}
 
 /*Google fonts*/
 @font-face {font-family: Bungee_Inline; src: url(Fonts/Bungee_Inline/BungeeInline-Regular.ttf);}
@@ -12,47 +12,50 @@ html{background-color:rgb(58, 51, 51);  font-family: Roboto, sans-serif;}
 #demo {font-family: Press_Start_2P, sans-serif; font-size: 20px; text-align: center;}
 #login{float: right; font-size: 30px; padding-right: 30px;}
 #menuLabel a {font-size: xx-large; font-family: Indie_Flower, sans-serif; padding-right: 100px; text-shadow: 3px 3px 5px black;} 
-#simpleText {text-align: left; margin: 10px; font-size: large; color:  yellow; margin-bottom: 100px; display: block;}
+#simpleText {text-align: left; margin: 10px; font-size: large; background-color:rgb(199, 199, 199); margin-bottom: 100px; display:block;}
+#fontBCKG{background-color:rgb(199, 199, 199); width: max-content; margin-left: 0; margin-left: auto; margin-right: auto; padding: 5px;}
 .contentIMG {width: 300px; margin-bottom: 50px;}
 p {text-align: left; font-size: large; margin: 10px; margin-bottom: 20px;}
 h3 {text-align: left; margin: 10px;}
 
 
 /* All buttons style on page*/
-.btn {font-size: x-large; background-color: black; outline: none; color: aqua; border: 2px solid aqua;}
-.btn:hover {color: red; border: 2px solid red;}
+.btn {font-size: xx-large; font-weight: 500; font-family: Indie_Flower, sans-serif; background-color:white; color:black; border: 2px solid black; border-radius: 15px; padding: 5px;  box-shadow: 5px 5px 40px 1px black inset;}
+.btn:hover {text-shadow: 3px 3px 5px black; outline: 0;  box-shadow: 5px 5px 30px 1px black inset;}
+.btn:focus{outline: 0; }
 
 /* Top menu*/
-ul { list-style-type: none; margin: 0px; padding: 0px; padding-top: 5px; overflow: hidden; background-color: rgb(18, 216, 100); box-shadow: 1px 1px 4px 4px rgb(18, 216, 100); font-family: Indie_Flower, sans-serif; position: fixed; width: 100%; top: 0;}
-li { float: left;}
-li a { display: block; color: black; font-size: xx-large; text-align: center; padding: 2px 15px ; text-decoration: none; text-shadow: 0px 0px 2px black;}
-li a:hover { color:  rgb(18, 216, 100); background-color:rgb(58, 51, 51); border-radius: 20px; }
+ul { list-style-type: none; margin: 0px; padding: 2px; overflow: hidden; background-color:gainsboro; font-family: Indie_Flower, sans-serif; position: fixed; width: 100%; top: 0; left: 0; box-shadow: 5px 5px 40px 3px black inset;}
+li { float: left; }
+li a { display: block; font-size: xx-large; text-align: center; padding: 2px 15px ; text-decoration: none; text-shadow: 0px 0px 2px black; }
+li a:hover { color:  rgb(18, 216, 100); transform: translateY(4px);}
 
 /* Content div 3 column*/
 .column { margin-right: auto; margin-left: auto; height:max-content; margin-top: 72px;}
-.middle { color: white; background-color:black; width: 80%;  box-shadow: 1px 1px 4px 4px rgb(18, 216, 100); text-align: center; padding: 10px; margin-top: 15px;}
-.left, .right {width:20%;}
+.middle { color:rgb(25, 42, 42); background-color:gainsboro; width: 70%;  box-shadow: 1px 1px 4px 4px gainsboro; text-align: center; padding: 10px; margin-top: 15px;}
+.left, .right {width:30%;}
 
 /* Calculator style */
-#calcStyle { width: max-content; height: max-content;  background-image:url(Pictures/terrain_pattern.jpg); margin-left: auto; margin-right: auto; font-size: large; border: 7px outset #00791e; }
+#calcStyle { width: max-content; height: max-content; background-color: #000000; margin-left: auto; margin-right: auto; font-size: large; border: 7px outset rgb(199, 199, 199); }
 #calcBtn button { font-size: 35px; background-color: black; color:rgb(18, 216, 100); width: 23%; outline: none;}
 #calcBtn button:hover { color: red;}
 #calcInput { background-color: #000000; font-size: 22px; margin: 10px; color: white}
-#calcLabel {color:black; text-shadow: 5px 2px 3px white; font-family: Press_Start_2P, sans-serif; font-size: x-large;} 
+#calcLabel {color:white; font-family: Press_Start_2P, sans-serif; font-size: large;} 
 
 /* Login form  */
 .formBox{ margin-left: auto; margin-right: auto; font-size: x-large; width: 300px; padding-left: 10px; padding-right: 10px;}
 #user, #passwd {width: 90%; font-size: x-large;}
 
 /* Gallery page */
-.sorryDIV {font-size: xx-large; color:white; display: none; }
- a:link, a:visited {color: inherit;}
-.galleryDIV {display:none; font-size: x-large;}
-.galleryDIV img {width:95%; border: 2px solid rgb(18, 216, 100);}
+.sorryDIV { font-size: xx-large; display: none; }
+ a:link, a:visited {color: inherit; text-decoration: none;}
+.galleryDIV {display:none;}
+.galleryDIV p {text-align: center; font-size: xx-large;}
+.galleryDIV img {width:95%; box-shadow: 0px 0px 8px 2px black; margin-bottom: 5px; }
 
 
 /*sandbox style*/
-#sandBox {width:max-content; height: 500px; background-color: chocolate;  margin-left: auto; margin-right: auto;
+#sandBox {width:max-content; height: 500px; background-color:dimgray; margin-left: auto; margin-right: auto;
     font-size: 28px; padding: 5px; text-shadow: 2px 2px 4px black; border: 2px solid white;}
 
 /*Table*/
@@ -62,10 +65,10 @@ li a:hover { color:  rgb(18, 216, 100); background-color:rgb(58, 51, 51); border
 
 /*Content on smartphones*/
 @media screen and (max-width: 815px) {
-    .middle {width: 95%;}  
+    
+    .middle {width: 93%; margin-left: auto; margin-right: auto; margin-top: 112px;}  
      #menuLabel {width: 100%; margin-left: 0; margin-right: 0; margin-bottom: 5px;}
-     #menuLabel a { font-size:37px; }
-     .column {padding-top: 35px;}
+     #menuLabel a { font-size:37px; }    
      li a {font-size: 23px;  padding: 2px 5px; }
      li a:active {background-color:  rgb(18, 216, 100);}
      #login { padding-right: 10px; }
@@ -77,6 +80,7 @@ li a:hover { color:  rgb(18, 216, 100); background-color:rgb(58, 51, 51); border
      #formLabel {font-size: 24px;}
      #sandBox {font-size: 25px;}
      #simpleText {text-align: left; margin: 10px; font-size: large;}
-     #mobileIMG {width: 210px;}
+     #mobileIMG {width: 200px;}
+     #fontBCKG{font-size: small;}
      }
 
