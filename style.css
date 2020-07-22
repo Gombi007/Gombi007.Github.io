@@ -28,7 +28,7 @@ h3 {text-align: left; margin: 10px;}
 ul { list-style-type: none; margin: 0px; padding: 2px; overflow: hidden; background-color:gainsboro; font-family: Indie_Flower, sans-serif; position: fixed; width: 100%; top: 0; left: 0; box-shadow: 5px 5px 40px 3px black inset;}
 li { float: left; }
 li a { display: block; font-size: xx-large; text-align: center; padding: 2px 15px ; text-decoration: none; text-shadow: 0px 0px 2px black; }
-li a:hover { color:  rgb(18, 216, 100); transform: translateY(4px);}
+li a:hover { color: rgb(18, 216, 100) ;transform: translateY(4px);}
 
 /* Content div 3 column*/
 .column { margin-right: auto; margin-left: auto; height:max-content; margin-top: 72px;}
@@ -36,9 +36,9 @@ li a:hover { color:  rgb(18, 216, 100); transform: translateY(4px);}
 .left, .right {width:30%;}
 
 /* Calculator style */
-#calcStyle { width: max-content; height: max-content; background-color: #000000; margin-left: auto; margin-right: auto; font-size: large; border: 7px outset rgb(199, 199, 199);}
-#calcBtn button { font-size: 35px; background-color: black; color:rgb(18, 216, 100); width: 23%; outline: none;}
-#calcBtn button:hover { color: red;}
+#calcStyle { width: max-content; height: max-content; background-color:gainsboro; margin-left: auto; margin-right: auto; font-size: large; border: 7px outset rgb(199, 199, 199);box-shadow: 5px 5px 40px 1px black inset; }
+#calcBtn button { font-size: 35px; background-color: rgb(255, 255, 255, 0.1); color:black; width: 23%; outline: none;}
+#calcBtn button:hover { box-shadow: 5px 5px 10px 1px black inset;}
 #calcInput { background-color: #000000; font-size: 22px; margin: 10px; color: white}
 #calcLabel {color:white; font-family: Press_Start_2P, sans-serif; font-size: large;} 
 
