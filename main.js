@@ -1,16 +1,18 @@
+
+/* Vsible div or not with a button */
 function modify() {
     let delContent = document.getElementById("simpleText");
     let btnLabel = document.getElementById("del");
-
-
-    if (delContent.style.display === "none") {
-        delContent.style.display = "block";
+    if (delContent.style.visibility === "hidden") {
+        delContent.style.visibility = "visible";
     } else {
-        delContent.style.display = "none";
+        delContent.style.visibility = "hidden";
     }
 }
 
 
+
+/*Image gallery yes or no content visibility*/ 
 function galleryY() {
     let gD = document.getElementById("galleryDIV");
     let sD = document.getElementById("sorryDIV");
@@ -28,3 +30,5 @@ function galleryN() {
         gD.style.display = "none";
     }
 }
+
+

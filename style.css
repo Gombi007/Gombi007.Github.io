@@ -12,9 +12,9 @@ html{background-color:black;  font-family: Roboto, sans-serif;}
 #demo {font-family: Press_Start_2P, sans-serif; font-size: 20px; text-align: center;}
 #login{float: right; font-size: 30px; padding-right: 30px;}
 #menuLabel a {font-size: xx-large; font-family: Indie_Flower, sans-serif; padding-right: 100px; text-shadow: 3px 3px 5px black;} 
-#simpleText {text-align: left; margin: 10px; font-size: large; background-color:rgb(199, 199, 199); margin-bottom: 100px; display:block;}
+#simpleText {text-align: left; margin: 10px; font-size: large; background-color:rgb(199, 199, 199); margin-bottom: 100px; visibility:visible;}
 #fontBCKG{background-color:rgb(199, 199, 199); width: max-content; margin-left: 0; margin-left: auto; margin-right: auto; padding: 5px;}
-.contentIMG {width: 300px; margin-bottom: 50px;}
+.contentIMG {width: 300px; margin-bottom: 50px; box-shadow: 0px 0px 8px 2px black;}
 p {text-align: left; font-size: large; margin: 10px; margin-bottom: 20px;}
 h3 {text-align: left; margin: 10px;}
 
@@ -36,7 +36,7 @@ li a:hover { color:  rgb(18, 216, 100); transform: translateY(4px);}
 .left, .right {width:30%;}
 
 /* Calculator style */
-#calcStyle { width: max-content; height: max-content; background-color: #000000; margin-left: auto; margin-right: auto; font-size: large; border: 7px outset rgb(199, 199, 199); }
+#calcStyle { width: max-content; height: max-content; background-color: #000000; margin-left: auto; margin-right: auto; font-size: large; border: 7px outset rgb(199, 199, 199);}
 #calcBtn button { font-size: 35px; background-color: black; color:rgb(18, 216, 100); width: 23%; outline: none;}
 #calcBtn button:hover { color: red;}
 #calcInput { background-color: #000000; font-size: 22px; margin: 10px; color: white}
@@ -62,12 +62,18 @@ li a:hover { color:  rgb(18, 216, 100); transform: translateY(4px);}
 .table {  text-align: left; padding: 10px;}
 .table td, th{padding-left: 50px; padding-bottom: 10px; }
 
+#tableMenu{width: 70%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 50px; }
+#tableMenu th {text-shadow: 2px 2px rgb(255, 255, 255); font-size: xx-large;  width: 30%; border: 1px solid rgb(175, 175, 175); padding-top: 7px; padding-bottom: 0px; box-shadow: 5px 52px 100px 3px rgb(121, 121, 121) inset;}
+#tableMenu td {font-size: x-large; border: 1px solid rgb(175, 175, 175);}
+#tableMenu tr:nth-child(even) {background-color:aliceblue;}
+#tableMenuL {text-align: left; padding-left: 10px;}
+
 
 /*Content on smartphones*/
 @media screen and (max-width: 815px) {
     
     .middle {width: 93%; margin-left: auto; margin-right: auto; margin-top: 112px;}  
-     #menuLabel {width: 100%; margin-left: 0; margin-right: 0; margin-bottom: 5px;}
+     #menuLabel {width: 100%; margin-left: 0; margin-right: 0; margin-bottom: 5px; }
      #menuLabel a { font-size:37px; }    
      li a {font-size: 23px;  padding: 2px 5px; }
      li a:active {background-color:  rgb(18, 216, 100);}
@@ -81,6 +87,9 @@ li a:hover { color:  rgb(18, 216, 100); transform: translateY(4px);}
      #sandBox {font-size: 25px;}
      #simpleText {text-align: left; margin: 10px; font-size: large;}
      #mobileIMG {width: 200px;}
-     #fontBCKG{font-size: small;}
+     #fontBCKG{font-size: small;}  
+     #tableMenu{width: 100%;}   
+     #tableMenu th{font-size: 25px; padding: 0;}
+     #tableMenu td{font-size: 18px;}
      }
 
