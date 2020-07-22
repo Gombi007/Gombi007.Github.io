@@ -1,6 +1,7 @@
 /*Full page background*/
 html{background-color:black;  font-family: Roboto, sans-serif;}
 
+
 /*Google fonts*/
 @font-face {font-family: Bungee_Inline; src: url(Fonts/Bungee_Inline/BungeeInline-Regular.ttf);}
 @font-face {font-family: Grenze_Gotisch; src: url(Fonts/Grenze_Gotisch/GrenzeGotisch-VariableFont_wght.ttf);}
@@ -28,7 +29,7 @@ h3 {text-align: left; margin: 10px;}
 ul { list-style-type: none; margin: 0px; padding: 2px; overflow: hidden; background-color:gainsboro; font-family: Indie_Flower, sans-serif; position: fixed; width: 100%; top: 0; left: 0; box-shadow: 5px 5px 40px 3px black inset;}
 li { float: left; }
 li a { display: block; font-size: xx-large; text-align: center; padding: 2px 15px ; text-decoration: none; text-shadow: 0px 0px 2px black; }
-li a:hover {transform: translateY(4px); text-shadow: 0px 0px 5px rgb(255, 0, 0); color: rgb(247, 250, 55);}
+li a:hover {transform: translateY(4px); text-shadow: 0px 0px 8px gold; color: rgb(255, 255, 255);}
 
 /* Content div 3 column*/
 .column { margin-right: auto; margin-left: auto; height:max-content; margin-top: 72px;}
@@ -43,8 +44,14 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 5px rgb(255, 0, 0);
 #calcLabel {color:white; font-family: Press_Start_2P, sans-serif; font-size: large;} 
 
 /* Login form  */
-.formBox{ margin-left: auto; margin-right: auto; font-size: x-large; width: 300px; padding-left: 10px; padding-right: 10px;}
-#user, #passwd {width: 90%; font-size: x-large;}
+.formBox{ margin-left: auto; margin-right: auto; font-size: x-large; width: 305px; padding: 10px; box-shadow: 0px 0px 5px black;}
+#user, #passwd, #name, #email, #address, #comment {width: 90%; font-size: x-large; border: 0px;}
+.formBoxCHK {text-align: left; font-size: 17px; padding-top: 10px;}
+.formBox input[type="radio"]{margin-left: 5px; margin-bottom: 25px; padding: 50px; transform: scale(1.5);}
+#formBoxSelect{font-size: 22px; padding-top: 30px; text-align: left; font-weight: bold;}
+#formBoxSelect select[name="sauce"]{font-size: 25px; width: 205px; margin-left: 20px; border: 0px;}
+#formBoxSelect input[name="quantity"]{font-size: 25px; width: 200px; border: 0px;}
+
 
 /* Gallery page */
 .sorryDIV { font-size: xx-large; display: none; }
@@ -68,12 +75,12 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 5px rgb(255, 0, 0);
 #tableMenu td {font-size: x-large;}
 
 #tableMenu tr:nth-child(even) {background-color:rgb(255, 255, 255)}
-#tableMenu tr:nth-child(odd) {background-color:rgb(112, 112, 112);}
+#tableMenu tr:nth-child(odd) {background-color:rgb(195, 195, 195);}
 #tableMenu th:first-child{text-align: left; padding-left: 0;}
 #tableMenu th:last-child{text-align: right;}
 
 #tableMenu td:nth-child(2n){text-align: left; }
-#tableMenu th:nth-child(2n){width: 60%; }
+#tableMenu th:nth-child(2n){width: 60%; padding-left: 170px;}
 #tableMenu td:first-child{text-align: left;}
 
 
@@ -87,7 +94,7 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 5px rgb(255, 0, 0);
      li a:active {background-color:  rgb(18, 216, 100);}
      #login { padding-right: 10px; }
      .galleryDIV img {width: 100%;}
-     .formBox {width: 93%;}
+     .formBox {width: 305px}
      #calcBtn button {font-size: 35px;}
      #calcInput {font-size: 22px;}
      h1 {font-size: 30px; margin-bottom: 50px;}
@@ -96,8 +103,9 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 5px rgb(255, 0, 0);
      #simpleText {text-align: left; margin: 10px; font-size: large;}
      #mobileIMG {width: 200px;}
      #fontBCKG{font-size: small;}  
-     #tableMenu{width: 100%;}   
-     #tableMenu th{font-size: 25px; padding: 0;}
-     #tableMenu td{font-size: 19px;}
+     #tableMenu{width:100%;  border: 1px solid black;}   
+     #tableMenu th:nth-child(2n) {font-size: 20px; padding-left: 60px;}
+     #tableMenu td {font-size: 22px; }
+     
      }
 

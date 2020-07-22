@@ -123,8 +123,76 @@
                 </tbody>
             </table><br><br>
 
-            <!--This is a calculator-->
+            <!--This is an order form-->
+            <h1>Order</h1>
+            <div class="formBox">
+                <form action="/">
+                    <div>
+                        <label for="name">Name: *</label>
+                        <input id="name" name="name" type="text" required>
+                    </div>
+                    <div>
+                        <label for="email">Email: *</label>
+                        <input id="email" name="email" type="email" required>
+                    </div>
+                    <div>
+                        <label for="address">Address: *</label>
+                        <input id="address" name="address" type="text" required>
+                    </div>
+                    <div>
+                        <label for="comment">Comment:</label>
+                        <textarea id="comment" name="comment" rows="5"></textarea>
+                    </div>
+                    <div class="formBoxCHK">
+                    <span id="formBoxSelect">Extras:</span><br> <br>
+                         <div>
+                            <input id="nothing" name="extra" type="radio" value="0">
+                            <label for="nothing">No</label>
+                        </div>
+                        <div>
+                            <input id="cheese" name="extra" type="radio" value="300">
+                            <label for="cheese">Cheese (+300 Ft)</label>
+                        </div>
+                        <div>
+                            <input id="bacon" name="extra" type="radio" value="400">
+                            <label for="bacon">Bacon (+400 Ft)</label>
+                        </div>
+                        <div>
+                            <input id="doubleMeat" name="extra" type="radio" value="1000">
+                            <label for="doubleMeat">Double meat (+1000 Ft)</label>
+                        </div>
+                        <div>
+                            <input id="cheeseBacon" name="extra" type="radio" value="700">
+                            <label for="cheeseBacon">Cheese and bacon (+700 Ft)</label>
+                        </div>
+                        <div>
+                            <input id="cheeseDoubleMeat" name="extra" type="radio" value="1300">
+                            <label for="cheese">Cheese and double meat (+1300 Ft)</label>
+                        </div>
+                        <div id="formBoxSelect">
+                            <label for="sauce">Sauce:</label>
+                            <select name="sauce" id="sauce">
+                                <option value="0" selected>Sauce 1</option>
+                                <option value="100" selected>Sauce 2</option>
+                                <option value="200" selected>Sauce 3</option>
+                                <option value="300" selected>Sauce 4</option>
+                            </select>
+                        </div>
+                        <div id="formBoxSelect">
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" name="quantity" min="1" max="10">
+                        </div>
 
+
+
+
+
+
+                    </div>
+                </form>
+            </div><br><br>
+
+            <!--This is a calculator-->
             <h1>Calculator</h1>
             <div id="calcStyle">
                 <h2 id="calcLabel"> Calculator</h2>
@@ -150,7 +218,7 @@
             </div>
 
             <!--This is a Javascript test area-->
-             <br><br>
+            <br><br>
             <h1>Sandbox</h1>
             <div id="sandBox">This is a Javascript content</div>
         </div>
