@@ -11,7 +11,7 @@ html{background-color:black;  font-family: Roboto, sans-serif;}
 
 #demo {font-family: Press_Start_2P, sans-serif; font-size: 20px; text-align: center;}
 #login{float: right; font-size: 30px; padding-right: 30px;}
-#menuLabel a {font-size: xx-large; font-family: Indie_Flower, sans-serif; padding-right: 100px; text-shadow: 3px 3px 5px black;} 
+#menuLabel a {font-size: xx-large; font-family: Indie_Flower, sans-serif; padding-right: 100px; } 
 #simpleText {text-align: left; margin: 10px; font-size: large; background-color:rgb(199, 199, 199); margin-bottom: 100px; visibility:visible;}
 #fontBCKG{background-color:rgb(199, 199, 199); width: max-content; margin-left: 0; margin-left: auto; margin-right: auto; padding: 5px;}
 .contentIMG {width: 300px; margin-bottom: 50px; box-shadow: 0px 0px 8px 2px black;}
@@ -28,7 +28,7 @@ h3 {text-align: left; margin: 10px;}
 ul { list-style-type: none; margin: 0px; padding: 2px; overflow: hidden; background-color:gainsboro; font-family: Indie_Flower, sans-serif; position: fixed; width: 100%; top: 0; left: 0; box-shadow: 5px 5px 40px 3px black inset;}
 li { float: left; }
 li a { display: block; font-size: xx-large; text-align: center; padding: 2px 15px ; text-decoration: none; text-shadow: 0px 0px 2px black; }
-li a:hover { color: rgb(18, 216, 100) ;transform: translateY(4px);}
+li a:hover {transform: translateY(4px); text-shadow: 0px 0px 5px rgb(255, 0, 0); color: rgb(247, 250, 55);}
 
 /* Content div 3 column*/
 .column { margin-right: auto; margin-left: auto; height:max-content; margin-top: 72px;}
@@ -62,11 +62,19 @@ li a:hover { color: rgb(18, 216, 100) ;transform: translateY(4px);}
 .table {  text-align: left; padding: 10px;}
 .table td, th{padding-left: 50px; padding-bottom: 10px; }
 
-#tableMenu{width: 70%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 50px; }
-#tableMenu th {text-shadow: 2px 2px rgb(255, 255, 255); font-size: xx-large;  width: 30%; border: 1px solid rgb(175, 175, 175); padding-top: 7px; padding-bottom: 0px; box-shadow: 5px 52px 100px 3px rgb(121, 121, 121) inset;}
-#tableMenu td {font-size: x-large; border: 1px solid rgb(175, 175, 175);}
-#tableMenu tr:nth-child(even) {background-color:aliceblue;}
-#tableMenuL {text-align: left; padding-left: 10px;}
+/*Menu table css selector test*/
+#tableMenu{width: 70%; margin-left: auto; margin-right: auto; border-collapse: collapse; margin-top: 50px;}
+#tableMenu th {text-shadow: 0px 0px 15px rgb(247, 250, 55); font-size: xx-large; padding-top: 7px; padding-bottom: 0px; color: gainsboro; box-shadow: 0px 0px 100px 10px rgb(0, 0, 0) inset;}
+#tableMenu td {font-size: x-large;}
+
+#tableMenu tr:nth-child(even) {background-color:rgb(255, 255, 255)}
+#tableMenu tr:nth-child(odd) {background-color:rgb(112, 112, 112);}
+#tableMenu th:first-child{text-align: left; padding-left: 0;}
+#tableMenu th:last-child{text-align: right;}
+
+#tableMenu td:nth-child(2n){text-align: left; }
+#tableMenu th:nth-child(2n){width: 60%; }
+#tableMenu td:first-child{text-align: left;}
 
 
 /*Content on smartphones*/
@@ -90,6 +98,6 @@ li a:hover { color: rgb(18, 216, 100) ;transform: translateY(4px);}
      #fontBCKG{font-size: small;}  
      #tableMenu{width: 100%;}   
      #tableMenu th{font-size: 25px; padding: 0;}
-     #tableMenu td{font-size: 18px;}
+     #tableMenu td{font-size: 19px;}
      }
 
