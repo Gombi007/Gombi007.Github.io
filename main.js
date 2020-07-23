@@ -10,7 +10,7 @@ function modify() {
     }
 }
 
-/*Image gallery yes or no content visibility*/ 
+/*Image gallery yes or no content visibility*/
 function galleryY() {
     let gD = document.getElementById("galleryDIV");
     let sD = document.getElementById("sorryDIV");
@@ -30,19 +30,26 @@ function galleryN() {
 }
 
 /*Order */
-function order(){
-let price = 1200;
-let amountInput = document.querySelector("input[name='quantity']").value;
-let total = document.querySelector("span.total");
-let extra = document.querySelector("input[name='extra']:checked").value;
- /* What the hack is this? :) */
-let sauceE = document.getElementById("sauce");
-let sauce = sauceE.options[sauceE.selectedIndex].value;
+function order() {
+    let price = 1200;
+    let amountInput = document.querySelector("input[name='quantity']").value;
+    let total = document.querySelector("span.total");
+    let extra = document.querySelector("input[name='extra']:checked").value;
+    let amount = 0;
+    let amountNumber = parseInt(amountInput);
+    /* What the hack is this? :) */
+    let sauceE = document.getElementById("sauce");
+    let sauce = sauceE.options[sauceE.selectedIndex].value;
 
-let amount = 0;
-amount = (parseInt(sauce) + parseInt(extra) + price) * parseInt(amountInput); 
-total.innerHTML = amount;
-
-
+    amountNumber = isNaN(amountNumber) ? 0 : amountNumber;
+   
+    if (amountNumber > 10) {
+        alert("You can buy 10 products maximum.");        
+    } else if (amountNumber < 1) {
+        alert("You must buy 1 product minimum.");
+    } else {
+        amount = (parseInt(sauce) + parseInt(extra) + price) * parseInt(amountInput);
+        total.innerHTML = amount;
+    }
 }
 
