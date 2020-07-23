@@ -72,4 +72,104 @@ function weatherWidget(){
             break;
         }
     }
+    temp();
+
 }
+
+//min,max,avg temp
+function minTemp(){
+    let min = temps.length != 0 ? temps[0] : 0;
+    for (let i = 1; i < temps.length; i++){
+        if (temps[i] < min){
+            min = temps[i];
+        }
+    }
+    return min;
+}
+
+function maxTemp(){
+    let max = temps.length != 0 ? temps[0] : 0;
+    for (let i = 1; i < temps.length; i++){
+        if (temps[i] > max){
+            max = temps[i];
+        }
+    }
+    return max;
+}
+
+function avgTemp(){
+    let avg = 0;
+    let avgRounded = 0;
+    for (let i = 0; i < temps.length; i++){
+        avg += temps[i];
+    }
+     avgRounded = temps.length != 0 ? avg / temps.length : 0;
+    return avgRounded.toFixed(2);
+
+}
+
+function temp(){
+    let minT = document.getElementById("minT"); 
+    let maxT = document.getElementById("maxT");
+    let avgT = document.getElementById("avgT");
+
+    minT.innerHTML = 'Min. ' + minTemp() + '&deg;C';
+    maxT.innerHTML = 'Max. ' + maxTemp() + '&deg;C';
+    avgT.innerHTML = 'Avg. ' + avgTemp() + '&deg;C';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Exercise sum algorithm
+
+let numericArray = [1, 3, 2, 5, 4, 7, 6, 9];
+let sum =0;
+for (i=0; i < numericArray.length; i++){
+    sum += numericArray[i];
+}
+console-console.log("Sum: ", sum);
+
+//Exercise counting algorithm
+let db = 0;
+for (let i=0; i < numericArray.length; i++){
+    if (numericArray[i] % 2 == 0){
+        db++;
+    }
+}
+console.log("Even numbers: ", db);
+
+//Exercise extreme value algorithm
+let biggest = numericArray[0];
+for (let i = 0; i < numericArray.length; i++){
+   if (numericArray[i] > biggest){
+       biggest = numericArray[i];
+   }
+}
+console.log("The biggest element: ", biggest);
+
+//Exercise choosing algorithm
+let contains = false;
+for (let i = 0; i < numericArray.length &&  contains == false; i++ ){
+    if (numericArray[i] ==  5){
+        contains = true;
+    }
+}
+console.log("Caontains 5? ", contains);

@@ -25,6 +25,7 @@
 
         <div class="column middle">
             <!-- Weather widget-->
+            <div id="weatherDIV">
             <table id="weather">
                 <tr>
                     <td>
@@ -49,12 +50,28 @@
                     </td>
                 </tr>
             </table>
+            <table id="avgTemp">
+            <tr>
+                <td> 
+                    <span id="minT"></span>
+                </td>
+                <td>
+                    <span id="maxT"></span>                   
+                    
+                </td>
+                <td>
+                    
+                    <span id="avgT"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
 
-            <!--This is a hamburger menu-->
-            <h1>Menu</h1>
-            <table id="tableMenu">
-                <thead>
-                    <tr>
+        <!--This is a hamburger menu-->
+        <h1>Menu</h1>
+        <table id="tableMenu">
+            <thead>
+                <tr>
                         <th><img src="Pictures/hamburger.png" alt="hambicon"></th>
                         <th>Sandwiches</th>
                         <th><img src="Pictures/hamburger.png" alt="hambicon"></th>
