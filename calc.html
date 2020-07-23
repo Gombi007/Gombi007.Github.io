@@ -24,6 +24,32 @@
         <div class="column left" style="background-color:rgb(58, 51, 51)"> </div>
 
         <div class="column middle">
+            <!-- Weather widget-->
+            <table id="weather">
+                <tr>
+                    <td>
+                        <div>
+                            <label for="widget">Weather</label><br>
+                            <select name="widget" id="day">
+                                <option value="0" selected>Monday</option>
+                                <option value="1">Tuesday</option>
+                                <option value="2">Wednesday</option>
+                                <option value="3">Thursday</option>
+                                <option value="4">Friday</option>
+                                <option value="5">Saturday</option>
+                                <option value="6">Sunday</option>
+                            </select>
+                            <button class="btn" type="button" id="weatherWidget" onclick="weatherWidget()">Show</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="tempDiv">
+                                
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
             <!--This is a hamburger menu-->
             <h1>Menu</h1>
             <table id="tableMenu">
@@ -128,6 +154,7 @@
             <div class="formBox">
                 <form action="/">
                     <div>
+                        Hamburger: 1200 Ft <br><br>
                         <label for="name">Name: *</label>
                         <input id="name" name="name" type="text" required>
                     </div>
@@ -144,9 +171,9 @@
                         <textarea id="comment" name="comment" rows="5"></textarea>
                     </div>
                     <div class="formBoxCHK">
-                    <span id="formBoxSelect">Extras:</span><br> <br>
-                         <div>
-                            <input id="nothing" name="extra" type="radio" value="0" checked="checked" class="radio" >
+                        <span id="formBoxSelect">Extras:</span><br> <br>
+                        <div>
+                            <input id="nothing" name="extra" type="radio" value="0" checked="checked" class="radio">
                             <label for="nothing">No ( 0 Ft)</label>
                         </div>
                         <div>
@@ -173,19 +200,20 @@
                             <label for="sauce">Sauce:</label>
                             <select name="sauce" id="sauce">
                                 <option value="0" selected>Traditional ( 0 Ft)</option>
-                                <option value="100" >Chili (+100 Ft)</option>
-                                <option value="200" >Curry (+200 Ft)</option>
-                                <option value="300" >Purple Onion (+300 Ft)</option>
+                                <option value="100">Chili (+100 Ft)</option>
+                                <option value="200">Curry (+200 Ft)</option>
+                                <option value="300">Purple Onion (+300 Ft)</option>
                             </select>
                         </div>
                         <div id="formBoxSelect">
                             <label for="quantity">Quantity:</label>
                             <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
-                            <small class="smallText">Min. 1   Max. 10 piece</small><br><br><br>
-                            <span>Total: <span class="total">0</span>  Ft</span>
+                            <small class="smallText">Min. 1 Max. 10 piece</small><br>
+                            <p id="alertInput"></p>
+                            <span>Total: <span class="total">0</span> Ft</span>
                         </div>
-                        <button class="btn" type="button" id="orderBtn" onclick="order()">Order</button>
-                        
+                        <button class="btn" type="button" id="orderBtn" onclick="calcOrder()">Order</button>
+
 
 
 

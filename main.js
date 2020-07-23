@@ -29,27 +29,38 @@ function galleryN() {
     }
 }
 
-/*Order */
-function order() {
+/*Give order parameters and price */
+function calcOrder() {
     let price = 1200;
     let amountInput = document.querySelector("input[name='quantity']").value;
-    let total = document.querySelector("span.total");
     let extra = document.querySelector("input[name='extra']:checked").value;
     let amount = 0;
     let amountNumber = parseInt(amountInput);
-    /* What the hack is this? :) */
-    let sauceE = document.getElementById("sauce");
-    let sauce = sauceE.options[sauceE.selectedIndex].value;
-
     amountNumber = isNaN(amountNumber) ? 0 : amountNumber;
-   
+    let sauceE = document.getElementById("sauce");  //Drop-down list selected value 
+    let sauce = sauceE.options[sauceE.selectedIndex].value;  //Drop-down list selected value 
+    amount = (parseInt(sauce) + parseInt(extra) + price) * parseInt(amountInput); 
+    showOrder(amountNumber,amount);
+}
+
+function showOrder(amountNumber, amount) {
+    let total = document.querySelector("span.total");
+    let alertInput = document.getElementById("alertInput");
     if (amountNumber > 10) {
-        alert("You can buy 10 products maximum.");        
+        alertInput.innerHTML = "You can buy 10 products maximum.";
+        
     } else if (amountNumber < 1) {
-        alert("You must buy 1 product minimum.");
-    } else {
-        amount = (parseInt(sauce) + parseInt(extra) + price) * parseInt(amountInput);
+       alertInput.innerHTML = "You must buy 1 product minimum.";
+    } else {        
         total.innerHTML = amount;
+        alertInput.innerHTML = "";
     }
 }
 
+//weather widget exercise
+let temps = [11.2, 14.4, 13.0, 17.3, 16.9, 18.2, 16.5];
+function weatherWidget(){
+    const day = document.querySelector('#day').value;
+    const tempDiv = document.querySelector('#tempDiv');
+    tempDiv.innerHTML = temps[day] + '&deg;C';
+}
