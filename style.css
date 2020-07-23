@@ -118,6 +118,9 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 8px gold; color: rg
      #tableMenu{width:100%;  border: 1px solid black;}   
      #tableMenu th:nth-child(2n) {font-size: 20px; padding-left: 60px;}
      #tableMenu td {font-size: 22px; }
+     .offer{font-size: medium;}
+     #weather td:last-child {width: 37%;}
+     #weather td:first-child {vertical-align: top;}
      
      }
 

@@ -58,9 +58,18 @@ function showOrder(amountNumber, amount) {
 }
 
 //weather widget exercise
-let temps = [11.2, 14.4, 13.0, 17.3, 16.9, 18.2, 16.5];
+let temps = [-11.2, 14.4, 13.0, 17.3, 21.7, 18.2, 28];
+let tempsUpper = [0, 15, 18, 22, 29];
+offers = ["Today's offer: hot chocolate.", "Today's offer: hot tea.", "Today's offer: delicious cookie.", "Today's offer: ice cream.", "Today's offer: ice-cold lemonade."];
+
 function weatherWidget(){
     const day = document.querySelector('#day').value;
     const tempDiv = document.querySelector('#tempDiv');
     tempDiv.innerHTML = temps[day] + '&deg;C';
+    for (let i = 0; i < tempsUpper.length; i++){
+        if (temps[day] <= tempsUpper[i]){
+            tempDiv.innerHTML += '<br><span class="offer">' + offers[i] + '</span>';
+            break;
+        }
+    }
 }
