@@ -33,7 +33,7 @@ li a { display: block; font-size: xx-large; text-align: center; padding: 2px 15p
 li a:hover {transform: translateY(4px); text-shadow: 0px 0px 8px gold; color: rgb(255, 255, 255);}
 
 /* Content div 3 column*/
-.column { margin-right: auto; margin-left: auto; height:max-content; margin-top: 72px;}
+.column { margin-right: auto; margin-left: auto; height:max-content; margin-top: 165px;}
 .middle { color:rgb(25, 42, 42); background-color:gainsboro; width: 70%;  box-shadow: 1px 1px 4px 4px gainsboro; text-align: center; padding: 10px; margin-top: 15px;}
 .left, .right {width:30%;}
 
@@ -89,24 +89,23 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 8px gold; color: rg
 
 
 /* Weather widget*/
-#weatherDIV {text-align: left; font-family: Roboto, sans-serif; font-size: x-large; box-shadow: 0px 0px 5px rgb(170, 170, 170); border-radius: 10px; padding: 5px;} 
-#weather, #avgTemp {width: 100%;} 
-#weather td:last-child {text-align:right; ; vertical-align: top;  padding-right: 10px;}
-#day {font-size: large; border: 0px; border-radius: 10px;  margin-top: 10px; padding-top: 8px; padding-bottom: 8px;}
+#weatherDIV {font-family: Roboto, sans-serif; font-size: large; font-weight: 550; position: fixed; width: 100%; top:55px; left: 0;
+    box-shadow: 0px 0px 5px black;   background-color: rgb(32, 32, 32); color: rgb(255, 255, 255); text-shadow: 0px 0px 3px gold;} 
+
+#day {font-size: 17px; border: 0px; border-radius: 15px;  margin-top: 5px; padding-top: 3px; padding-bottom: 3px; color: aliceblue; text-shadow: 0px 0px 3px gold;background-color: rgb(32, 32, 32); }
 #day:focus{outline: 0; }
-#weatherWidget {padding: 0px; font-size: 25px; margin-left: 7px;}
-#weather label {margin-left: 10px;}
-#avgTemp { text-align: center;}
-#avgTemp td:first-child {text-align: left;}
-#avgTemp td:last-child {text-align: right;}
-
-
+.weather{width: 100%; text-align: center;}
+#weatherRight{ text-align: right; padding-right: 10px;}
+#weatherLeft{ text-align: left; padding-left: 10px;}
+#weatherWidget {padding: 0; font-size: 17px; padding-left: 30px; padding-right: 30px; color: aliceblue; text-shadow: 0px 0px 3px gold; background-color: rgb(32, 32, 32);}
+#offerDiv{font-size: x-large; animation: mymove 7s infinite; letter-spacing: 10px;  }
+@keyframes mymove { 50% {opacity: 0%;} }
 
 
 /*Content on smartphones*/
 @media screen and (max-width: 815px) {
     
-    .middle {width: 93%; margin-left: auto; margin-right: auto; margin-top: 112px;}  
+    .middle {width: 93%; margin-left: auto; margin-right: auto; margin-top: 245px;}  
      #menuLabel {width: 100%; margin-left: 0; margin-right: 0; margin-bottom: 5px; }
      #menuLabel a { font-size:37px; }    
      li a {font-size: 23px;  padding: 2px 5px; }
@@ -125,9 +124,9 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 8px gold; color: rg
      #tableMenu{width:100%;  border: 1px solid black;}   
      #tableMenu th:nth-child(2n) {font-size: 20px; padding-left: 60px;}
      #tableMenu td {font-size: 22px; }
-     .offer{font-size: medium;}
-     #weather td:last-child {width: 37%;}
-     #weather td:first-child {vertical-align: top;}
+     #weatherDIV{top: 103px; font-size: medium;}
+     #offerDiv{font-size: medium; letter-spacing: 3px;}
+
      
      }
 

@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Javascript exercise</title>
 </head>
 
-<body>
+<body onload="weatherWidget(); timer();" >
 
     <ul>
         <li id="menuLabel"><a href="index.html">Gombi's page</a></li>
@@ -18,6 +19,53 @@
         <li><a href="about.html">About</a></li>
         <li id="login"><a href="login.html">Login</a></li>
     </ul>
+    <!-- Weather widget-->
+    <div id="weatherDIV">
+        <table class="weather">
+            <tr>
+                <td id="weatherLeft">
+                    <span>Weather</span>
+                </td>
+                <td>
+                    <div>
+                        <select name="widget" id="day">
+                            <option value="0" selected>Monday</option>
+                            <option value="1">Tuesday</option>
+                            <option value="2">Wednesday</option>
+                            <option value="3">Thursday</option>
+                            <option value="4">Friday</option>
+                            <option value="5">Saturday</option>
+                            <option value="6">Sunday</option>
+                        </select>
+                        <button class="btn" type="button" id="weatherWidget" onclick="weatherWidget()">Show</button>
+                    </div>
+                </td>
+                <td id="weatherRight">
+                    <div id="tempDiv">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div id="offerDiv"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="weatherLeft">
+                    <span id="minT"></span>
+                </td>
+                <td>
+                    <span id="maxT"></span>
+
+                </td>
+                <td id="weatherRight">
+
+                    <span id="avgT"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <div class="row">
 
         <div class="column left" style="background-color:rgb(58, 51, 51)"> </div>
@@ -37,37 +85,9 @@
         <div class="column right" style="background-color:rgb(58, 51, 51)"></div>
 
     </div>
-    <script>
-        // Countdown Timer
-        // Set the date we're counting down to
-        var countDownDate = new Date("Aug 4, 2020 08:00:00").getTime();
+    
+    <script src="main.js"></script>
 
-        // Update the count down every 1 second
-        var x = setInterval(function () {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result in the element with id="demo"
-            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-                + minutes + "m " + seconds + "s ";
-
-            // If the count down is finished, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
-            }
-        }, 1000);
-    </script>
 </body>
 
 </html>

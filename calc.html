@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Javascript exercise</title>
 </head>
 
-<body>
+<body onload="weatherWidget()">
 
+
+    <!--Menu-->
     <ul>
         <li id="menuLabel"><a href="index.html">Gombi's page</a></li>
         <li><a href="calc.html">Sandbox</a></li>
@@ -18,60 +21,65 @@
         <li><a href="about.html">About</a></li>
         <li id="login"><a href="login.html">Login</a></li>
     </ul>
-
-    <div class="row">
-
-        <div class="column left" style="background-color:rgb(58, 51, 51)"> </div>
-
-        <div class="column middle">
-            <!-- Weather widget-->
-            <div id="weatherDIV">
-            <table id="weather">
-                <tr>
-                    <td>
-                        <div>
-                            <label for="widget">Weather</label><br>
-                            <select name="widget" id="day">
-                                <option value="0" selected>Monday</option>
-                                <option value="1">Tuesday</option>
-                                <option value="2">Wednesday</option>
-                                <option value="3">Thursday</option>
-                                <option value="4">Friday</option>
-                                <option value="5">Saturday</option>
-                                <option value="6">Sunday</option>
-                            </select>
-                            <button class="btn" type="button" id="weatherWidget" onclick="weatherWidget()">Show</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div id="tempDiv">
-                                
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <table id="avgTemp">
+    <!-- Weather widget-->
+    <div id="weatherDIV">
+        <table class="weather">
             <tr>
-                <td> 
+                <td id="weatherLeft">
+                    <span>Weather</span>
+                </td>
+                <td>
+                    <div>
+                        <select name="widget" id="day">
+                            <option value="0" selected>Monday</option>
+                            <option value="1">Tuesday</option>
+                            <option value="2">Wednesday</option>
+                            <option value="3">Thursday</option>
+                            <option value="4">Friday</option>
+                            <option value="5">Saturday</option>
+                            <option value="6">Sunday</option>
+                        </select>
+                        <button class="btn" type="button" id="weatherWidget" onclick="weatherWidget()">Show</button>
+                    </div>
+                </td>
+                <td id="weatherRight">
+                    <div id="tempDiv">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div id="offerDiv"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="weatherLeft">
                     <span id="minT"></span>
                 </td>
                 <td>
-                    <span id="maxT"></span>                   
-                    
+                    <span id="maxT"></span>
+
                 </td>
-                <td>
-                    
+                <td id="weatherRight">
+
                     <span id="avgT"></span>
                 </td>
             </tr>
         </table>
     </div>
 
-        <!--This is a hamburger menu-->
-        <h1>Menu</h1>
-        <table id="tableMenu">
-            <thead>
-                <tr>
+    <div class="row">
+
+        <div class="column left" style="background-color:rgb(58, 51, 51)"> </div>
+
+        <div class="column middle">
+
+
+            <!--This is a hamburger menu-->
+            <h1>Menu</h1>
+            <table id="tableMenu">
+                <thead>
+                    <tr>
                         <th><img src="Pictures/hamburger.png" alt="hambicon"></th>
                         <th>Sandwiches</th>
                         <th><img src="Pictures/hamburger.png" alt="hambicon"></th>
@@ -276,6 +284,7 @@
 
     </div>
     <script src="main.js"></script>
+
 </body>
 
 </html>

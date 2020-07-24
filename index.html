@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Javascript exercise</title>
 
 </head>
 
-<body>
+<body onload="weatherWidget()">
 
     <ul>
         <li id="menuLabel"><a href="index.html">Gombi's page</a></li>
@@ -19,6 +20,54 @@
         <li><a href="about.html">About</a></li>
         <li id="login"><a href="login.html">Login</a></li>
     </ul>
+
+    <!-- Weather widget-->
+    <div id="weatherDIV">
+        <table class="weather">
+            <tr>
+                <td id="weatherLeft">
+                    <span>Weather</span>
+                </td>
+                <td>
+                    <div>
+                        <select name="widget" id="day">
+                            <option value="0" selected>Monday</option>
+                            <option value="1">Tuesday</option>
+                            <option value="2">Wednesday</option>
+                            <option value="3">Thursday</option>
+                            <option value="4">Friday</option>
+                            <option value="5">Saturday</option>
+                            <option value="6">Sunday</option>
+                        </select>
+                        <button class="btn" type="button" id="weatherWidget" onclick="weatherWidget()">Show</button>
+                    </div>
+                </td>
+                <td id="weatherRight">
+                    <div id="tempDiv">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div id="offerDiv"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="weatherLeft">
+                    <span id="minT"></span>
+                </td>
+                <td>
+                    <span id="maxT"></span>
+
+                </td>
+                <td id="weatherRight">
+
+                    <span id="avgT"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <div class="row">
 
         <div class="column left" style="background-color:rgb(58, 51, 51)"> </div>
@@ -73,12 +122,12 @@
             <img class=contentIMG src="Pictures/programmer2.jpg" alt="prog2">
 
 
-           
 
 
-            
+
+
             <h1>These are google fonts </h1>
-            <div id="fontBCKG">  
+            <div id="fontBCKG">
                 <h2 style="font-family: Bungee_Inline;;"> Bungee_Inline </h2>
                 <h2 style="font-family: Grenze_Gotisch;"> Grenze_Gotisch </h2>
                 <h2 style="font-family: Indie_Flower;"> Indie_Flower </h2>
@@ -86,9 +135,10 @@
                 <h2 style="font-family: Roboto;">Roboto </h2>
                 <h2 style="font-family: Shadows_Into_Light;">Shadows_Into_Light </h2>
             </div>
-            
 
-            <br><br><button class="btn" id="del" type="button" onclick="modify()">Add or Delete Paragraph</button><br><br>
+
+            <br><br><button class="btn" id="del" type="button" onclick="modify()">Add or Delete
+                Paragraph</button><br><br>
             <div id="simpleText">
                 <h3>Web developer</h3>
                 <p>
@@ -100,10 +150,10 @@
                     communications
                     between client and server. A web content management system is often used to develop and maintain web
                     applications.
-                </p> 
+                </p>
             </div>
 
-            
+
 
 
         </div>
