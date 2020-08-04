@@ -3,12 +3,12 @@ html{background-color:black;  font-family: Roboto, sans-serif;}
 
 
 /*Google fonts*/
-@font-face {font-family: Bungee_Inline; src: url(Fonts/Bungee_Inline/BungeeInline-Regular.ttf);}
-@font-face {font-family: Grenze_Gotisch; src: url(Fonts/Grenze_Gotisch/GrenzeGotisch-VariableFont_wght.ttf);}
-@font-face {font-family: Indie_Flower; src: url(Fonts/Indie_Flower/IndieFlower-Regular.ttf);}
-@font-face {font-family: Press_Start_2P; src: url(Fonts/Press_Start_2P/PressStart2P-Regular.ttf);}
-@font-face {font-family: Roboto; src: url(Fonts/Roboto/Roboto-Regular.ttf);}
-@font-face {font-family: Shadows_Into_Light; src: url(Fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf);}
+@font-face {font-family: Bungee_Inline; src: url(/Fonts/Bungee_Inline/BungeeInline-Regular.ttf);}
+@font-face {font-family: Grenze_Gotisch; src: url(/Fonts/Grenze_Gotisch/GrenzeGotisch-VariableFont_wght.ttf);}
+@font-face {font-family: Indie_Flower; src: url(/Fonts/Indie_Flower/IndieFlower-Regular.ttf);}
+@font-face {font-family: Press_Start_2P; src: url(/Fonts/Press_Start_2P/PressStart2P-Regular.ttf);}
+@font-face {font-family: Roboto; src: url(/Fonts/Roboto/Roboto-Regular.ttf);}
+@font-face {font-family: Shadows_Into_Light; src: url(/Fonts/Shadows_Into_Light/ShadowsIntoLight-Regular.ttf);}
 
 #demo {font-family: Press_Start_2P, sans-serif; font-size: 20px; text-align: center;}
 #login{float: right; font-size: 30px; padding-right: 30px;}
@@ -25,6 +25,7 @@ h3 {text-align: left; margin: 10px;}
 .btn:hover {text-shadow: 3px 3px 5px black; outline: 0;  box-shadow: 5px 5px 30px 1px black inset;}
 .btn:focus{outline: 0; }
 #orderBtn{margin-left: 105px; margin-top: 20px; margin-bottom: 20px;}
+.userBtn{font-size:x-large; padding: 1px;}
 
 /* Top menu*/
 ul { list-style-type: none; margin: 0px; padding: 2px; overflow: hidden; background-color:gainsboro; font-family: Indie_Flower, sans-serif; position: fixed; width: 100%; top: 0; left: 0; box-shadow: 5px 5px 40px 3px black inset;}
@@ -45,8 +46,9 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 8px gold; color: rg
 #calcLabel {color:white; font-family: Press_Start_2P, sans-serif; font-size: large;} 
 
 /* Login form  */
+.formBoxHide { visibility: hidden;}
 .formBox{ margin-left: auto; margin-right: auto; font-size: x-large; width: 305px; padding: 10px; box-shadow: 0px 0px 5px black;}
-#user, #passwd, #name, #email, #address, #comment {width: 90%; font-size: x-large; border: 0px;}
+#user, #passwd, #name, #email, #address, #comment, #loginUser, #loginPasswd, #regUser, #regPasswd, #regEmail{width: 90%; font-size: x-large; border: 0px;}
 .formBoxCHK {text-align: left; font-size: 17px; padding-top: 10px;}
 .formBox input[type="radio"]{margin-left: 5px; margin-bottom: 25px; padding: 50px;}
 .radio{width: 17px; height: 17px;}
@@ -68,6 +70,15 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 8px gold; color: rg
 /*sandbox style*/
 #sandBox {width:max-content; height: 500px; background-color:dimgray; margin-left: auto; margin-right: auto;
     font-size: 28px; padding: 5px; text-shadow: 2px 2px 4px black; border: 2px solid white;}
+
+
+/*User Table*/
+.userTable{ width: 95%;margin-left: auto; margin-right: auto;  box-shadow: 0px 0px 5px black; font-size: x-large; border-collapse: collapse;}
+
+.userTable tr:nth-child(even) {background-color:rgb(255, 255, 255)}
+.userTable tr:nth-child(odd) {background-color:rgb(195, 195, 195)}
+
+
 
 /*Table*/
 .table {  text-align: left; padding: 10px;}
@@ -98,8 +109,9 @@ li a:hover {transform: translateY(4px); text-shadow: 0px 0px 8px gold; color: rg
 #weatherRight{ text-align: right; padding-right: 10px;}
 #weatherLeft{ text-align: left; padding-left: 10px;}
 #weatherWidget {padding: 0; font-size: 17px; padding-left: 30px; padding-right: 30px; color: aliceblue; text-shadow: 0px 0px 3px gold; background-color: rgb(32, 32, 32);}
-#offerDiv{font-size: x-large; animation: mymove 7s infinite; letter-spacing: 10px;  }
+#offerDiv{font-size: x-large; animation: mymove 7s infinite; letter-spacing: 7px;  }
 @keyframes mymove { 50% {opacity: 0%;} }
+
 
 
 /*Content on smartphones*/

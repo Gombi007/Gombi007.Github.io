@@ -131,99 +131,36 @@ function temp() {
 
 
 // Exam countdowner
-function timer(){
-        // Countdown Timer
-        // Set the date we're counting down to
-        var countDownDate = new Date("Aug 3, 2020 08:00:00").getTime();
+function timer() {
+    // Countdown Timer
+    // Set the date we're counting down to
+    var countDownDate = new Date("Aug 12, 2020 08:00:00").getTime();
 
-        // Update the count down every 1 second
-        var x = setInterval(function () {
+    // Update the count down every 1 second
+    var x = setInterval(function () {
 
-            // Get today's date and time
-            var now = new Date().getTime();
+        // Get today's date and time
+        var now = new Date().getTime();
 
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
 
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result in the element with id="demo"
-            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-                + minutes + "m " + seconds + "s ";
+        // Display the result in the element with id="demo"
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
 
-            // If the count down is finished, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
-            }
-        }, 1000);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Exercise sum algorithm
-
-let numericArray = [1, 3, 2, 5, 4, 7, 6, 9];
-let sum = 0;
-for (i = 0; i < numericArray.length; i++) {
-    sum += numericArray[i];
-}
-console - console.log("Sum: ", sum);
-
-//Exercise counting algorithm
-let db = 0;
-for (let i = 0; i < numericArray.length; i++) {
-    if (numericArray[i] % 2 == 0) {
-        db++;
-    }
-}
-console.log("Even numbers: ", db);
-
-//Exercise extreme value algorithm
-let biggest = numericArray[0];
-for (let i = 0; i < numericArray.length; i++) {
-    if (numericArray[i] > biggest) {
-        biggest = numericArray[i];
-    }
-}
-console.log("The biggest element: ", biggest);
-
-//Exercise choosing algorithm
-let contains = false;
-for (let i = 0; i < numericArray.length && contains == false; i++) {
-    if (numericArray[i] == 5) {
-        contains = true;
-    }
-}
-console.log("Caontains 5? ", contains);
-
-let user = {
-    name: "Kiss Ramóna",
-    age: 20,
-    city: "Bp"
-
-};
-console.log(Object.keys(user));
-
-for (let k in user) {
-    console.log(k);
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+    }, 1000);
 
 }
+
