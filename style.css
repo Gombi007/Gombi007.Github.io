@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(58, 57, 57);
+    color: aliceblue;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.container {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+}
+
+.slidecontainer {
+    display: flex;
+}
+
+
+#canvas1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
