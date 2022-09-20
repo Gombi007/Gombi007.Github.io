@@ -9,8 +9,8 @@ const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = (canvas.width = BROWSER_WINDOW_WIDTH);
 const CANVAS_HEIGHT = (canvas.height = 500);
 
-let PLAYER_STATE = 0;
-let PLAYER_RUNNING_SPEED = 16;
+let UNIT_OF_MOVEMENT_X = 30;
+let UNIT_OF_MOVEMENT_Y = 160;
 let SPEED = 6;
 let GAME_FRAME = 0;
 let FRAME_STEPPER = 0;
@@ -41,38 +41,53 @@ function animate() {
 animate();
 
 //control
+document.getElementById("slider").addEventListener("change", (event) => {
+  switch (event.target.value) {
+    case '1':
+      SPEED = 10;
+      UNIT_OF_MOVEMENT_X -= 15;
+      break;
+    case '3':
+      SPEED = 3;
+      UNIT_OF_MOVEMENT_X += 15;
+      break;
+    default:
+      SPEED = 6;
+      UNIT_OF_MOVEMENT_X = 30;
+  }
+});
+
+
 document.getElementById("animations").addEventListener("change", (event) => {
-  PLAYER_STATE = player.selectPlayerState(event.target.value);
+  player.playerState = player.selectPlayerState(event.target.value);
 });
 
 const keyboard = new KeyboardController(player, {
   ArrowLeft: () => {
     if (player.playerMovementX < 0) {
-      player.playerMovementX += 30;
+      player.playerMovementX += UNIT_OF_MOVEMENT_X;
       player.playerState = 11;
     }
   },
   ArrowRight: () => {
-    player.playerMovementX -= 30;
+    player.playerMovementX -= UNIT_OF_MOVEMENT_X;
     player.playerState = 3
   },
   ArrowUp: () => {
     if (player.playerMovementY == 0) {
-      player.playerMovementY -= 200;
       player.playerState = 1;
+      player.playerMovementY -= UNIT_OF_MOVEMENT_Y;
+    } else if (player.playerMovementY === (player.playerMovementY - UNIT_OF_MOVEMENT_Y)) {
+      player.playerMovementY = 0;
     }
   },
   ArrowDown: () => {
     player.playerState = 5;
+    keyboard.blur();
+
   }
 }, 40);
 
 
-/*
-document.getElementById("slider").addEventListener("change", (event) => {
-  SPEED = 12 / event.target.value;
-  PLAYER_RUNNING_SPEED = event.target.value * 8;
-});
-*/
 
 
