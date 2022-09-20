@@ -8,15 +8,16 @@ body {
 .container {
     padding-top: 2rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    text-align: center;
 
 }
 
 .slidecontainer {
     display: flex;
 }
-
 
 #canvas1 {
     position: absolute;
@@ -26,6 +27,5 @@ body {
 }
 
 .guide {
-    padding-top: 1rem;
-    text-align: center;
+    flex: 0 0 100%;
 }
