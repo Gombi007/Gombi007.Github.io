@@ -85,8 +85,11 @@ const keyboard = new KeyboardController(player, {
   ArrowDown: () => {
     player.playerState = 5;
     keyboard.blur();
-
-  }
+  },
+  Space: () => {
+    player.playerState = 7;
+    keyboard.blur();
+  },
 }, 40);
 
 

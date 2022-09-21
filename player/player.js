@@ -3,8 +3,9 @@ export class Player {
     this.playerImage = new Image();
     this.playerImage.src = './player/shadow_dog.png';
     this.audioRun = new Audio('./player/sounds/dog_walk.wav');
-    this.audioJump = new Audio('./player/sounds/jump.wav');
+    this.audioJump = new Audio('./player/sounds/dog_jump.wav');
     this.audioBreath = new Audio('./player/sounds/dog_breath.wav');
+    this.audioBite = new Audio('./player/sounds/dog_bite.wav');
     this.spriteWidth = 575;
     this.spriteHeight = 523;
     this.playerMovementX = 0;
@@ -132,12 +133,14 @@ export class Player {
   }
 
   playSounds() {
-    this.playerState === 0 ? this.audioRun.pause() : null;
+    this.playerState === 0 || this.playerState === 5 || this.playerState === 7
+      || this.playerState === 1 ? this.audioRun.pause() : null;
     this.playerState === 0 ? this.audioBreath.pause() : null;
 
     this.playerState === 3 || this.playerState === 11 ? this.audioRun.play() : null;
     this.playerState === 1 ? this.audioJump.play() : null;
     this.playerState === 5 ? this.audioBreath.play() : null;
+    this.playerState === 7 ? this.audioBite.play() : null;
   }
 }
 
