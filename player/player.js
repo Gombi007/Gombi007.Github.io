@@ -125,18 +125,11 @@ export class Player {
       this.getPositionY(this.playerState),
       this.spriteWidth,
       this.spriteHeight,
-      200,
+      300,
       this.playerMovementY + 260,
       this.spriteWidth * 0.4,
       this.spriteHeight * 0.4
     );
-  }
-
-  getCollisonRectangle() {
-    let rectangle = { rightX: 0, leftX: 0, downY: 0, upY: 0 }
-    rectangle.rightX = Math.floor(this.spriteWidth / 2) - this.playerMovementX;
-    rectangle.downY = this.playerMovementY * (-1);
-    return rectangle;
   }
 
   playSounds() {

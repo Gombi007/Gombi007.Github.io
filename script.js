@@ -11,16 +11,16 @@ const CANVAS_WIDTH = (canvas.width = BROWSER_WINDOW_WIDTH);
 const CANVAS_HEIGHT = (canvas.height = 500);
 
 let UNIT_OF_MOVEMENT_X = 30;
-let UNIT_OF_MOVEMENT_Y = 160;
+let UNIT_OF_MOVEMENT_Y = 180;
 let SPEED = 6;
 let GAME_FRAME = 0;
 let FRAME_STEPPER = 0;
 const player = new Player(0);
-const track = new Track();
-let playerBlocker = false;
+const track = new Track(UNIT_OF_MOVEMENT_X, UNIT_OF_MOVEMENT_Y);
+let blocker = { left: false, right: false };
 
 function animate() {
-  playerBlocker = false;
+  blocker = track.collison();
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
   //render backgrounds
@@ -30,15 +30,12 @@ function animate() {
   });
 
   //render track
-  track.update(player.playerMovementX)
+  track.update(player.playerMovementX, player.playerMovementY)
   track.draw(ctx);
-  if (track.collison(player.getCollisonRectangle()) === true) {
-    playerBlocker = true;
-  }
-
 
   //render player
   player.draw(ctx, FRAME_STEPPER);
+
   if (GAME_FRAME % SPEED == 0) {
     if (FRAME_STEPPER < player.getMaxFrameIndex()) {
       FRAME_STEPPER++;
@@ -46,7 +43,6 @@ function animate() {
       FRAME_STEPPER = 0;
     }
   }
-
 
   GAME_FRAME++;
   requestAnimationFrame(animate);
@@ -77,13 +73,13 @@ document.getElementById("animations").addEventListener("change", (event) => {
 
 const keyboard = new KeyboardController(player, {
   ArrowLeft: () => {
-    if (player.playerMovementX < 0) {
+    if (player.playerMovementX < 0 && !blocker.left) {
       player.playerMovementX += UNIT_OF_MOVEMENT_X;
       player.playerState = 11;
     }
   },
   ArrowRight: () => {
-    if (!playerBlocker) {
+    if (!blocker.right) {
       player.playerMovementX -= UNIT_OF_MOVEMENT_X;
       player.playerState = 3
     }
