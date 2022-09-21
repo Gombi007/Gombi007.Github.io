@@ -1,7 +1,9 @@
 export class Player {
   constructor(playerState) {
     this.playerImage = new Image();
-    this.playerImage.src = "./player/shadow_dog.png";
+    this.playerImage.src = './player/shadow_dog.png';
+    this.audioRun = new Audio();
+    this.audioRun.src = './player/sounds/dog_walk.wav'
     this.spriteWidth = 575;
     this.spriteHeight = 523;
     this.playerMovementX = 0;
@@ -114,6 +116,7 @@ export class Player {
   }
 
   draw(ctx, frameStepper) {
+    this.playSounds();
     ctx.drawImage(
       this.playerImage,
       this.getPositionX(frameStepper),
@@ -126,4 +129,10 @@ export class Player {
       this.spriteHeight * 0.4
     );
   }
+
+  playSounds() {
+    this.playerState === 3 || this.playerState === 11 ? this.audioRun.play() : null;
+    this.playerState === 0 ? this.audioRun.pause() : null;
+  }
 }
+

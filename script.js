@@ -35,6 +35,7 @@ function animate() {
     }
   }
 
+
   GAME_FRAME++;
   requestAnimationFrame(animate);
 }
