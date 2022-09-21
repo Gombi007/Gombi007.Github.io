@@ -5,7 +5,7 @@ export class Track {
         this.imgFence.src = './track/wood-fence.png';
 
         this.x = 500;
-        this.y = 250;
+        this.y = 225;
         this.width = 300;
         this.height = 300;
     }
@@ -17,14 +17,16 @@ export class Track {
     draw(ctx) {
         ctx.drawImage(this.imgFence, this.fixedX, this.y, this.width, this.height);
     }
-    collison(startX) {
-        if (this.x - startX >= 0 && this.x - startX <= 20) {
+    collison(playerCollisonRectangle) {
+
+        if (playerCollisonRectangle.downY > 150) {
+            return false
+        }
+
+        if (this.x - playerCollisonRectangle.rightX >= 0 && this.x - playerCollisonRectangle.rightX <= 20) {
             return true
         }
         return false;
-
-
-
     }
 }
 

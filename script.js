@@ -32,7 +32,7 @@ function animate() {
   //render track
   track.update(player.playerMovementX)
   track.draw(ctx);
-  if (track.collison(player.getCollisonRectangle().startX) === true) {
+  if (track.collison(player.getCollisonRectangle()) === true) {
     playerBlocker = true;
   }
 

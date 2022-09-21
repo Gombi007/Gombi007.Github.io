@@ -133,9 +133,9 @@ export class Player {
   }
 
   getCollisonRectangle() {
-    let rectangle = { startX: 0, endX: 0, startY: 0, endY: 0 }
-    //  rectangle.startX = ((this.spriteWidth * 0.4) / 2) - this.getPositionX;
-    rectangle.startX = Math.floor(this.spriteWidth / 2) - this.playerMovementX;
+    let rectangle = { rightX: 0, leftX: 0, downY: 0, upY: 0 }
+    rectangle.rightX = Math.floor(this.spriteWidth / 2) - this.playerMovementX;
+    rectangle.downY = this.playerMovementY * (-1);
     return rectangle;
   }
 
