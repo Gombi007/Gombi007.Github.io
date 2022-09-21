@@ -1,4 +1,5 @@
 import { Player } from "./player/player.js";
+import { Track } from "./track/track.js";
 import { gameObjects as backgrounds } from "./background/background.js";
 import { KeyboardController } from "./control/control.js";
 
@@ -15,8 +16,11 @@ let SPEED = 6;
 let GAME_FRAME = 0;
 let FRAME_STEPPER = 0;
 const player = new Player(0);
+const track = new Track();
+let playerBlocker = false;
 
 function animate() {
+  playerBlocker = false;
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
   //render backgrounds
@@ -24,6 +28,14 @@ function animate() {
     background.update(player.playerMovementX);
     background.draw(ctx);
   });
+
+  //render track
+  track.update(player.playerMovementX)
+  track.draw(ctx);
+  if (track.collison(player.getCollisonRectangle().startX) === true) {
+    playerBlocker = true;
+  }
+
 
   //render player
   player.draw(ctx, FRAME_STEPPER);
@@ -71,8 +83,10 @@ const keyboard = new KeyboardController(player, {
     }
   },
   ArrowRight: () => {
-    player.playerMovementX -= UNIT_OF_MOVEMENT_X;
-    player.playerState = 3
+    if (!playerBlocker) {
+      player.playerMovementX -= UNIT_OF_MOVEMENT_X;
+      player.playerState = 3
+    }
   },
   ArrowUp: () => {
     if (player.playerMovementY == 0) {

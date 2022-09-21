@@ -132,6 +132,13 @@ export class Player {
     );
   }
 
+  getCollisonRectangle() {
+    let rectangle = { startX: 0, endX: 0, startY: 0, endY: 0 }
+    //  rectangle.startX = ((this.spriteWidth * 0.4) / 2) - this.getPositionX;
+    rectangle.startX = Math.floor(this.spriteWidth / 2) - this.playerMovementX;
+    return rectangle;
+  }
+
   playSounds() {
     this.playerState === 0 || this.playerState === 5 || this.playerState === 7
       || this.playerState === 1 ? this.audioRun.pause() : null;
