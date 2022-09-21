@@ -2,8 +2,9 @@ export class Player {
   constructor(playerState) {
     this.playerImage = new Image();
     this.playerImage.src = './player/shadow_dog.png';
-    this.audioRun = new Audio();
-    this.audioRun.src = './player/sounds/dog_walk.wav'
+    this.audioRun = new Audio('./player/sounds/dog_walk.wav');
+    this.audioJump = new Audio('./player/sounds/jump.wav');
+    this.audioBreath = new Audio('./player/sounds/dog_breath.wav');
     this.spriteWidth = 575;
     this.spriteHeight = 523;
     this.playerMovementX = 0;
@@ -131,8 +132,12 @@ export class Player {
   }
 
   playSounds() {
-    this.playerState === 3 || this.playerState === 11 ? this.audioRun.play() : null;
     this.playerState === 0 ? this.audioRun.pause() : null;
+    this.playerState === 0 ? this.audioBreath.pause() : null;
+
+    this.playerState === 3 || this.playerState === 11 ? this.audioRun.play() : null;
+    this.playerState === 1 ? this.audioJump.play() : null;
+    this.playerState === 5 ? this.audioBreath.play() : null;
   }
 }
 
