@@ -1,10 +1,6 @@
-import { UNIT_OF_MOVEMENT_X, UNIT_OF_MOVEMENT_Y } from "../script.js";
-
 //map
 class WoodFenceBlocker {
-    constructor(image, UNIT_OF_MOVEMENT_X, UNIT_OF_MOVEMENT_Y, randomXPosition) {
-        this.unitOfMovementX = UNIT_OF_MOVEMENT_X;
-        this.unitOfMovementY = UNIT_OF_MOVEMENT_Y;
+    constructor(image, randomXPosition) {
         this.imgFence = image;
         this.x = randomXPosition;
         this.y = 225;
