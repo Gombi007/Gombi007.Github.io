@@ -129,7 +129,7 @@ function isCollison(direction, playerCurrentPositionX, playerCurrentPositionY, b
   // block the player when go Forward
   if (direction === 'forward') {
     for (const position of blockerPositionsOnTheTrack.forward) {
-      if (playerCurrentPositionX < (position + 20) && playerCurrentPositionX > position) {
+      if (playerCurrentPositionX < (position + 20) && playerCurrentPositionX > (position - 20)) {
         blockerDirection.forward = true;
         blockerDirection.back = false;
       }
@@ -139,7 +139,7 @@ function isCollison(direction, playerCurrentPositionX, playerCurrentPositionY, b
   // block the player when go Back
   if (direction === 'back') {
     for (const position of blockerPositionsOnTheTrack.back) {
-      if ((playerCurrentPositionX < (position + 20) && playerCurrentPositionX > position)) {
+      if ((playerCurrentPositionX < (position + 20) && playerCurrentPositionX > (position - 20))) {
         blockerDirection.forward = false;
         blockerDirection.back = true;
       }

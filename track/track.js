@@ -21,11 +21,15 @@ class WoodFenceBlocker {
 
 let woodFence1 = new Image();
 woodFence1.src = './track/wood-fence.png';
-let woodFenceBlocker1 = new WoodFenceBlocker(woodFence1, 30, 180, 700);
+let woodFenceBlocker1 = new WoodFenceBlocker(woodFence1, 750);
 
 let woodFence2 = new Image();
 woodFence2.src = './track/wood-fence.png';
-let woodFenceBlocker2 = new WoodFenceBlocker(woodFence1, 30, 180, 1500);
+let woodFenceBlocker2 = new WoodFenceBlocker(woodFence1, 1500);
 
-export let woodFenceBlockerObjects = [woodFenceBlocker1, woodFenceBlocker2];
+let woodFence3 = new Image();
+woodFence2.src = './track/wood-fence.png';
+let woodFenceBlocker3 = new WoodFenceBlocker(woodFence1, 2000);
+
+export let woodFenceBlockerObjects = [woodFenceBlocker1, woodFenceBlocker2, woodFenceBlocker3];
 
