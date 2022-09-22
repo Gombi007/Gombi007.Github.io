@@ -1,5 +1,5 @@
 import { Player } from "./player/player.js";
-import { woodFenceBlockerObjects } from "./track/track.js";
+import { blockerObjects } from "./track/track.js";
 import { gameObjects as backgrounds } from "./background/background.js";
 import { KeyboardController } from "./control/control.js";
 
@@ -24,8 +24,8 @@ function animate() {
   blockerBACK = false;
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-  blockerFORWARD = isCollison('forward', player.playerMovementX, player.playerMovementY, woodFenceBlockerObjects).forward;
-  blockerBACK = isCollison('back', player.playerMovementX, player.playerMovementY, woodFenceBlockerObjects).back;
+  blockerFORWARD = isCollison('forward', player.playerMovementX, player.playerMovementY, blockerObjects).forward;
+  blockerBACK = isCollison('back', player.playerMovementX, player.playerMovementY, blockerObjects).back;
 
   //render backgrounds
   backgrounds.forEach((background) => {
@@ -34,7 +34,7 @@ function animate() {
   });
 
   //render track
-  woodFenceBlockerObjects.forEach(obj => {
+  blockerObjects.forEach(obj => {
     obj.update(player.playerMovementX, player.playerMovementY);
     obj.draw(ctx);
   });
