@@ -37,7 +37,12 @@ let doghouseBlocker = new Blocker(doghouse, 0, 200, 300, 300);
 
 let rock1 = new Image();
 rock1.src = './track/rock1.png';
-let rock1Blocker = new Blocker(rock1, 2500, 190, 370, 370);
+let rock1Blocker = new Blocker(rock1, 500, 190, 340, 370);
 
-export let blockerObjects = [woodFenceBlocker1, woodFenceBlocker2, woodFenceBlocker3, doghouseBlocker, rock1Blocker];
+let endOfTrack = new Image();
+endOfTrack.src = './track/four_wood-fences.png';
+let endOfTrackBlocker = new Blocker(endOfTrack, 1500, -70, 400, 700);
+
+
+export let blockerObjects = [doghouseBlocker, woodFenceBlocker1, endOfTrackBlocker];
 

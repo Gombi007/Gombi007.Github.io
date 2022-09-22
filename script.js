@@ -16,16 +16,16 @@ let SPEED = 6;
 let GAME_FRAME = 0;
 let FRAME_STEPPER = 0;
 const player = new Player(0);
-let blockerFORWARD = false;
-let blockerBACK = false;
+let isClearFORWARD = true;
+let isClearBACK = true;
 
 function animate() {
-  blockerFORWARD = false;
-  blockerBACK = false;
+  isClearFORWARD = true;
+  isClearBACK = true;
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-  blockerFORWARD = isCollison('forward', player.playerMovementX, player.playerMovementY, blockerObjects).forward;
-  blockerBACK = isCollison('back', player.playerMovementX, player.playerMovementY, blockerObjects).back;
+  isClearFORWARD = isCollison('forward', player.playerMovementX, player.playerMovementY, blockerObjects).forward;
+  isClearBACK = isCollison('back', player.playerMovementX, player.playerMovementY, blockerObjects).back;
 
   //render backgrounds
   backgrounds.forEach((background) => {
@@ -80,13 +80,13 @@ document.getElementById("animations").addEventListener("change", (event) => {
 
 const keyboard = new KeyboardController(player, {
   ArrowLeft: () => {
-    if (player.playerMovementX < 0 && !blockerBACK) {
+    if (player.playerMovementX < 0 && isClearBACK) {
       player.playerMovementX += UNIT_OF_MOVEMENT_X;
       player.playerState = 11;
     }
   },
   ArrowRight: () => {
-    if (!blockerFORWARD) {
+    if (isClearFORWARD) {
       player.playerMovementX -= UNIT_OF_MOVEMENT_X;
       player.playerState = 3
     }
@@ -110,41 +110,49 @@ const keyboard = new KeyboardController(player, {
 }, 40);
 
 function isCollison(direction, playerCurrentPositionX, playerCurrentPositionY, blockerObjects) {
-  let blockerDirection = { forward: false, back: false };
-
-  // if you jump, you can go  
-  if (playerCurrentPositionY < -170) {
-    blockerDirection.forward = false;
-    blockerDirection.back = false;
-    return blockerDirection;
-  }
+  let clearDirections = { forward: true, back: true };
 
   // save all blocker postion
-  let blockerPositionsOnTheTrack = { forward: [], back: [] }
+  let blockerPositionsOnTheTrack = { forward: { width: [], height: [] }, back: { width: [], height: [] } }
   blockerObjects.forEach((obj) => {
-    blockerPositionsOnTheTrack.forward.push((obj.x - 390) * -1);
-    blockerPositionsOnTheTrack.back.push((obj.x - 120) * -1);
+    blockerPositionsOnTheTrack.forward.width.push((obj.x - 390) * -1);
+    blockerPositionsOnTheTrack.forward.height.push(obj.height * -1);
+
+    blockerPositionsOnTheTrack.back.width.push((obj.x - 120) * -1);
+    blockerPositionsOnTheTrack.back.height.push(obj.height * -1);
   });
 
-  // block the player when go Forward
   if (direction === 'forward') {
-    for (const position of blockerPositionsOnTheTrack.forward) {
-      if (playerCurrentPositionX < (position + 20) && playerCurrentPositionX > (position - 20)) {
-        blockerDirection.forward = true;
-        blockerDirection.back = false;
+    for (let i = 0; i < blockerPositionsOnTheTrack.forward.width.length; i++) {
+      const positionWidth = blockerPositionsOnTheTrack.forward.width[i];
+      const positionHeight = blockerPositionsOnTheTrack.forward.height[i];
+      //block player when front of the blcoker and the player on the ground
+      if ((playerCurrentPositionY == 0 && playerCurrentPositionX < (positionWidth + 20) && playerCurrentPositionX > (positionWidth - 20))) {
+        clearDirections.forward = false;
+      }
+      //block player when front of the blcoker and the player in the air and the blocker is higher than jump
+      if (playerCurrentPositionY < 0 && positionHeight < (playerCurrentPositionY * 2) && playerCurrentPositionX < (positionWidth + 20) && playerCurrentPositionX > (positionWidth - 20)) {
+        clearDirections.forward = false;
       }
     }
+    return clearDirections;
   }
 
-  // block the player when go Back
+
   if (direction === 'back') {
-    for (const position of blockerPositionsOnTheTrack.back) {
-      if ((playerCurrentPositionX < (position + 20) && playerCurrentPositionX > (position - 20))) {
-        blockerDirection.forward = false;
-        blockerDirection.back = true;
+    for (let i = 0; i < blockerPositionsOnTheTrack.back.width.length; i++) {
+      const positionWidth = blockerPositionsOnTheTrack.back.width[i];
+      const positionHeight = blockerPositionsOnTheTrack.back.height[i];
+      //block player when front of the blcoker and the player on the ground   
+      if ((playerCurrentPositionY == 0 && playerCurrentPositionX < (positionWidth + 20) && playerCurrentPositionX > (positionWidth - 30))) {
+        clearDirections.back = false;
+      }
+      //block player when front of the blcoker and the player in the air and the blocker is higher than jump
+      if (playerCurrentPositionY < 0 && positionHeight < (playerCurrentPositionY * 2) && playerCurrentPositionX < (positionWidth + 20) && playerCurrentPositionX > (positionWidth - 20)) {
+        clearDirections.back = false;
       }
     }
+    return clearDirections;
   }
-  return blockerDirection;
 }
 
