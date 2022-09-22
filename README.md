@@ -1,1 +1,1 @@
-# myPage
+# Pure Javascript Game

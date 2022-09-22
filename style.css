@@ -2,7 +2,13 @@ body {
     background-color: rgb(58, 57, 57);
     color: aliceblue;
     font-size: large;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: burlywood;
 }
 
 .container {
@@ -15,9 +21,26 @@ body {
 
 }
 
+select {
+    background-color: rgb(58, 57, 57);
+    color: whitesmoke;
+    font-size: 1rem;
+    padding: 0.1rem;
+    border: 2px solid rgb(94, 94, 94);
+    outline: none;
+}
+
+select option {
+    background-color: rgb(58, 57, 57);
+    color: whitesmoke;
+    border: none;
+    outline: none;
+}
+
 .slidecontainer {
     display: flex;
 }
+
 
 #canvas1 {
     position: absolute;
