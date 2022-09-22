@@ -1,9 +1,9 @@
 //track
 class WoodFenceBlocker {
-    constructor(image, randomXPosition) {
+    constructor(image, randomXPosition, randomYPosition) {
         this.imgFence = image;
         this.x = randomXPosition;
-        this.y = 225;
+        this.y = randomYPosition;
         this.width = 300;
         this.height = 300;
     }
@@ -21,15 +21,19 @@ class WoodFenceBlocker {
 
 let woodFence1 = new Image();
 woodFence1.src = './track/wood-fence.png';
-let woodFenceBlocker1 = new WoodFenceBlocker(woodFence1, 750);
+let woodFenceBlocker1 = new WoodFenceBlocker(woodFence1, 750, 225);
 
 let woodFence2 = new Image();
 woodFence2.src = './track/wood-fence.png';
-let woodFenceBlocker2 = new WoodFenceBlocker(woodFence1, 1500);
+let woodFenceBlocker2 = new WoodFenceBlocker(woodFence1, 1500, 225);
 
 let woodFence3 = new Image();
 woodFence2.src = './track/wood-fence.png';
-let woodFenceBlocker3 = new WoodFenceBlocker(woodFence1, 2000);
+let woodFenceBlocker3 = new WoodFenceBlocker(woodFence1, 2000, 225);
 
-export let woodFenceBlockerObjects = [woodFenceBlocker1, woodFenceBlocker2, woodFenceBlocker3];
+let doghouse = new Image();
+doghouse.src = './track/dog_house.png';
+let doghouseBlocker = new WoodFenceBlocker(doghouse, 0, 200);
+
+export let woodFenceBlockerObjects = [woodFenceBlocker1, woodFenceBlocker2, woodFenceBlocker3, doghouseBlocker];
 
