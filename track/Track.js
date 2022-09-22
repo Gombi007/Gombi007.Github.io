@@ -1,11 +1,12 @@
+import { UNIT_OF_MOVEMENT_X, UNIT_OF_MOVEMENT_Y } from "../script.js";
+
 //map
-export class Track {
-    constructor(UNIT_OF_MOVEMENT_X, UNIT_OF_MOVEMENT_Y) {
+class WoodFenceBlocker {
+    constructor(image, UNIT_OF_MOVEMENT_X, UNIT_OF_MOVEMENT_Y, randomXPosition) {
         this.unitOfMovementX = UNIT_OF_MOVEMENT_X;
         this.unitOfMovementY = UNIT_OF_MOVEMENT_Y;
-        this.imgFence = new Image();
-        this.imgFence.src = './track/wood-fence.png';
-        this.x = 700;
+        this.imgFence = image;
+        this.x = randomXPosition;
         this.y = 225;
         this.width = 300;
         this.height = 300;
@@ -19,33 +20,16 @@ export class Track {
     draw(ctx) {
         ctx.drawImage(this.imgFence, this.fixedX, this.y, this.width, this.height);
     }
-    collison() {
-        let blockerDirection = { left: false, right: false };
-        let distanceBetweenPlayerAndBlocekr = this.fixedX + this.playerMovementX;
-
-        // if you jump, you can go
-        if (-this.playerMovementY > 170) {
-            blockerDirection.left = false;
-            blockerDirection.right = false;
-            return blockerDirection;
-        }
-        // block the player when go Forward
-        if (distanceBetweenPlayerAndBlocekr < 100 && distanceBetweenPlayerAndBlocekr > 0) {
-            blockerDirection.left = false;
-            blockerDirection.right = true;
-            return blockerDirection;
-        }
-        // block the player when go Back
-        if (distanceBetweenPlayerAndBlocekr < -100 && distanceBetweenPlayerAndBlocekr > -500) {
-            blockerDirection.left = true;
-            blockerDirection.right = false;
-            return blockerDirection;
-        }
-
-        blockerDirection.left = false;
-        blockerDirection.right = false;
-        return blockerDirection;
-    }
-
 }
+
+
+let woodFence1 = new Image();
+woodFence1.src = './track/wood-fence.png';
+let woodFenceBlocker1 = new WoodFenceBlocker(woodFence1, 30, 180, 700);
+
+let woodFence2 = new Image();
+woodFence2.src = './track/wood-fence.png';
+let woodFenceBlocker2 = new WoodFenceBlocker(woodFence1, 30, 180, 1500);
+
+export let woodFenceBlockerObjects = [woodFenceBlocker1, woodFenceBlocker2];
 

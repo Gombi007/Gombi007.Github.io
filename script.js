@@ -1,5 +1,5 @@
 import { Player } from "./player/player.js";
-import { Track } from "./track/track.js";
+import { woodFenceBlockerObjects } from "./track/track.js";
 import { gameObjects as backgrounds } from "./background/background.js";
 import { KeyboardController } from "./control/control.js";
 
@@ -10,18 +10,22 @@ const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = (canvas.width = BROWSER_WINDOW_WIDTH);
 const CANVAS_HEIGHT = (canvas.height = 500);
 
-let UNIT_OF_MOVEMENT_X = 30;
-let UNIT_OF_MOVEMENT_Y = 180;
+export let UNIT_OF_MOVEMENT_X = 30;
+export let UNIT_OF_MOVEMENT_Y = 180;
 let SPEED = 6;
 let GAME_FRAME = 0;
 let FRAME_STEPPER = 0;
 const player = new Player(0);
-const track = new Track(UNIT_OF_MOVEMENT_X, UNIT_OF_MOVEMENT_Y);
-let blocker = { left: false, right: false };
+let blockerFORWARD = false;
+let blockerBACK = false;
 
 function animate() {
-  blocker = track.collison();
+  blockerFORWARD = false;
+  blockerBACK = false;
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  blockerFORWARD = isCollison('forward', player.playerMovementX, player.playerMovementY, woodFenceBlockerObjects).forward;
+  blockerBACK = isCollison('back', player.playerMovementX, player.playerMovementY, woodFenceBlockerObjects).back;
 
   //render backgrounds
   backgrounds.forEach((background) => {
@@ -30,8 +34,11 @@ function animate() {
   });
 
   //render track
-  track.update(player.playerMovementX, player.playerMovementY)
-  track.draw(ctx);
+  woodFenceBlockerObjects.forEach(obj => {
+    obj.update(player.playerMovementX, player.playerMovementY);
+    obj.draw(ctx);
+  });
+
 
   //render player
   player.draw(ctx, FRAME_STEPPER);
@@ -73,13 +80,13 @@ document.getElementById("animations").addEventListener("change", (event) => {
 
 const keyboard = new KeyboardController(player, {
   ArrowLeft: () => {
-    if (player.playerMovementX < 0 && !blocker.left) {
+    if (player.playerMovementX < 0 && !blockerBACK) {
       player.playerMovementX += UNIT_OF_MOVEMENT_X;
       player.playerState = 11;
     }
   },
   ArrowRight: () => {
-    if (!blocker.right) {
+    if (!blockerFORWARD) {
       player.playerMovementX -= UNIT_OF_MOVEMENT_X;
       player.playerState = 3
     }
@@ -102,6 +109,42 @@ const keyboard = new KeyboardController(player, {
   },
 }, 40);
 
+function isCollison(direction, playerCurrentPositionX, playerCurrentPositionY, blockerObjects) {
+  let blockerDirection = { forward: false, back: false };
 
+  // if you jump, you can go  
+  if (playerCurrentPositionY < -170) {
+    blockerDirection.forward = false;
+    blockerDirection.back = false;
+    return blockerDirection;
+  }
 
+  // save all blocker postion
+  let blockerPositionsOnTheTrack = { forward: [], back: [] }
+  blockerObjects.forEach((obj) => {
+    blockerPositionsOnTheTrack.forward.push((obj.x - 390) * -1);
+    blockerPositionsOnTheTrack.back.push((obj.x - 120) * -1);
+  });
+
+  // block the player when go Forward
+  if (direction === 'forward') {
+    for (const position of blockerPositionsOnTheTrack.forward) {
+      if (playerCurrentPositionX < (position + 20) && playerCurrentPositionX > position) {
+        blockerDirection.forward = true;
+        blockerDirection.back = false;
+      }
+    }
+  }
+
+  // block the player when go Back
+  if (direction === 'back') {
+    for (const position of blockerPositionsOnTheTrack.back) {
+      if ((playerCurrentPositionX < (position + 20) && playerCurrentPositionX > position)) {
+        blockerDirection.forward = false;
+        blockerDirection.back = true;
+      }
+    }
+  }
+  return blockerDirection;
+}
 
