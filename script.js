@@ -34,6 +34,16 @@ function animate() {
     background.draw(ctx);
   });
 
+  //Test text
+  console.log(player.playerMovementX);
+  if (player.playerMovementX < -2500) {
+
+    ctx.font = "30px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("END OF THE TRACK", canvas.width / 2, 50);
+  }
+
   //render track
   blockerObjects.forEach(obj => {
     obj.update(player.playerMovementX, player.playerMovementY);
