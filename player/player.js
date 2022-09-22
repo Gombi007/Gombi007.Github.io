@@ -126,7 +126,7 @@ export class Player {
       this.spriteWidth,
       this.spriteHeight,
       300,
-      this.playerMovementY + 260,
+      this.playerMovementY + 460,
       this.spriteWidth * 0.4,
       this.spriteHeight * 0.4
     );

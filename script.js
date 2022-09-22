@@ -4,11 +4,11 @@ import { gameObjects as backgrounds } from "./background/background.js";
 import { KeyboardController } from "./control/control.js";
 
 /* @type {HTMLCanvasElement} */
-let BROWSER_WINDOW_WIDTH = window.innerWidth > 1000 ? 1000 : window.innerWidth;
+let BROWSER_WINDOW_WIDTH = window.innerWidth > 1000 ? 1500 : window.innerWidth;
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = (canvas.width = BROWSER_WINDOW_WIDTH);
-const CANVAS_HEIGHT = (canvas.height = 500);
+const CANVAS_HEIGHT = (canvas.height = 700);
 
 let UNIT_OF_MOVEMENT_X = 30;
 let UNIT_OF_MOVEMENT_Y = 180;
@@ -39,7 +39,6 @@ function animate() {
     obj.update(player.playerMovementX, player.playerMovementY);
     obj.draw(ctx);
   });
-
 
   //render player
   player.draw(ctx, FRAME_STEPPER);
