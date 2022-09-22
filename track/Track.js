@@ -1,4 +1,4 @@
-//map
+//track
 class WoodFenceBlocker {
     constructor(image, randomXPosition) {
         this.imgFence = image;
