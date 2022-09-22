@@ -1,5 +1,5 @@
 import { Player } from "./player/player.js";
-import { blockerObjects } from "./track/track.js";
+import { blockerObjects, saveAllBlockerPositions } from "./track/track.js";
 import { gameObjects as backgrounds } from "./background/background.js";
 import { KeyboardController } from "./control/control.js";
 
@@ -10,22 +10,23 @@ const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = (canvas.width = BROWSER_WINDOW_WIDTH);
 const CANVAS_HEIGHT = (canvas.height = 500);
 
-export let UNIT_OF_MOVEMENT_X = 30;
-export let UNIT_OF_MOVEMENT_Y = 180;
+let UNIT_OF_MOVEMENT_X = 30;
+let UNIT_OF_MOVEMENT_Y = 180;
 let SPEED = 6;
 let GAME_FRAME = 0;
 let FRAME_STEPPER = 0;
 const player = new Player(0);
 let isClearFORWARD = true;
 let isClearBACK = true;
+let blockerPositions = saveAllBlockerPositions();
 
 function animate() {
   isClearFORWARD = true;
   isClearBACK = true;
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-  isClearFORWARD = isCollison('forward', player.playerMovementX, player.playerMovementY, blockerObjects).forward;
-  isClearBACK = isCollison('back', player.playerMovementX, player.playerMovementY, blockerObjects).back;
+  isClearFORWARD = isCollison('forward', player.playerMovementX, player.playerMovementY, blockerPositions).forward;
+  isClearBACK = isCollison('back', player.playerMovementX, player.playerMovementY, blockerPositions).back;
 
   //render backgrounds
   backgrounds.forEach((background) => {
@@ -109,23 +110,13 @@ const keyboard = new KeyboardController(player, {
   },
 }, 40);
 
-function isCollison(direction, playerCurrentPositionX, playerCurrentPositionY, blockerObjects) {
+function isCollison(direction, playerCurrentPositionX, playerCurrentPositionY, blockerPositions) {
   let clearDirections = { forward: true, back: true };
 
-  // save all blocker postion
-  let blockerPositionsOnTheTrack = { forward: { width: [], height: [] }, back: { width: [], height: [] } }
-  blockerObjects.forEach((obj) => {
-    blockerPositionsOnTheTrack.forward.width.push((obj.x - 390) * -1);
-    blockerPositionsOnTheTrack.forward.height.push(obj.height * -1);
-
-    blockerPositionsOnTheTrack.back.width.push((obj.x - 120) * -1);
-    blockerPositionsOnTheTrack.back.height.push(obj.height * -1);
-  });
-
   if (direction === 'forward') {
-    for (let i = 0; i < blockerPositionsOnTheTrack.forward.width.length; i++) {
-      const positionWidth = blockerPositionsOnTheTrack.forward.width[i];
-      const positionHeight = blockerPositionsOnTheTrack.forward.height[i];
+    for (let i = 0; i < blockerPositions.forward.width.length; i++) {
+      const positionWidth = blockerPositions.forward.width[i];
+      const positionHeight = blockerPositions.forward.height[i];
       //block player when front of the blcoker and the player on the ground
       if ((playerCurrentPositionY == 0 && playerCurrentPositionX < (positionWidth + 20) && playerCurrentPositionX > (positionWidth - 20))) {
         clearDirections.forward = false;
@@ -138,11 +129,10 @@ function isCollison(direction, playerCurrentPositionX, playerCurrentPositionY, b
     return clearDirections;
   }
 
-
   if (direction === 'back') {
-    for (let i = 0; i < blockerPositionsOnTheTrack.back.width.length; i++) {
-      const positionWidth = blockerPositionsOnTheTrack.back.width[i];
-      const positionHeight = blockerPositionsOnTheTrack.back.height[i];
+    for (let i = 0; i < blockerPositions.back.width.length; i++) {
+      const positionWidth = blockerPositions.back.width[i];
+      const positionHeight = blockerPositions.back.height[i];
       //block player when front of the blcoker and the player on the ground   
       if ((playerCurrentPositionY == 0 && playerCurrentPositionX < (positionWidth + 20) && playerCurrentPositionX > (positionWidth - 30))) {
         clearDirections.back = false;
