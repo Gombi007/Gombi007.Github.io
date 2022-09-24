@@ -6,7 +6,7 @@ export class Enemy {
         this.movementX = 0;
         this.movementY = 0;
         this.enemyImage = new Image();
-        this.animations = [
+        this.runForwardAnimations = [
             './pictures/enemy/skeleton/skeleton-03_run_00.png',
             './pictures/enemy/skeleton/skeleton-03_run_01.png',
             './pictures/enemy/skeleton/skeleton-03_run_03.png',
@@ -20,17 +20,40 @@ export class Enemy {
             './pictures/enemy/skeleton/skeleton-03_run_11.png',
             './pictures/enemy/skeleton/skeleton-03_run_12.png',
         ];
-        this.enemyImage.src = this.animations[enemyState];
+        this.runBackAnimations = [
+            './pictures/enemy/skeleton/skeleton-03_run_13.png',
+            './pictures/enemy/skeleton/skeleton-03_run_14.png',
+            './pictures/enemy/skeleton/skeleton-03_run_15.png',
+            './pictures/enemy/skeleton/skeleton-03_run_16.png',
+            './pictures/enemy/skeleton/skeleton-03_run_17.png',
+            './pictures/enemy/skeleton/skeleton-03_run_18.png',
+            './pictures/enemy/skeleton/skeleton-03_run_19.png',
+            './pictures/enemy/skeleton/skeleton-03_run_20.png',
+            './pictures/enemy/skeleton/skeleton-03_run_21.png',
+            './pictures/enemy/skeleton/skeleton-03_run_22.png',
+            './pictures/enemy/skeleton/skeleton-03_run_23.png',
+            './pictures/enemy/skeleton/skeleton-03_run_24.png',
+        ];
         this.movementX = 900;
+        this.isStepForward = true;
     }
-    moveX(enemyFrameStepper, playerMovementX) {
+    moveX(distanceCounter, playerMovementX) {
         this.fixedX = this.movementX + playerMovementX;
-        this.fixedX += enemyFrameStepper * 1;
 
+        if (distanceCounter == 0) {
+            this.isStepForward = !this.isStepForward;
+        }
+        this.fixedX += distanceCounter * 1;
     }
 
     update(enemyFrameStepper) {
-        this.enemyImage.src = this.animations[enemyFrameStepper];
+        if (this.isStepForward) {
+            this.enemyImage.src = this.runForwardAnimations[enemyFrameStepper];
+        }
+
+        if (!this.isStepForward) {
+            this.enemyImage.src = this.runBackAnimations[enemyFrameStepper];
+        }
     }
 
     draw(ctx) {

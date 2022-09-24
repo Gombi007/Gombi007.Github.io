@@ -65,9 +65,10 @@ function animate() {
   }
 
   //render enemy
-  enemy.draw(ctx);
-  enemy.update(ENEMY_FRAME_STEEPER);
   enemy.moveX(ENEMY_DISTANCE, player.playerMovementX);
+  enemy.update(ENEMY_FRAME_STEEPER);
+  enemy.draw(ctx);
+
   if (ENEMY_DISTANCE < 500) {
     ENEMY_DISTANCE++;
   } else {
@@ -75,15 +76,12 @@ function animate() {
   }
 
   if (GAME_FRAME % SPEED == 0) {
-    if (ENEMY_FRAME_STEEPER < enemy.animations.length - 1) {
+    if (ENEMY_FRAME_STEEPER < enemy.runForwardAnimations.length - 1) {
       ENEMY_FRAME_STEEPER++;
     } else {
       ENEMY_FRAME_STEEPER = 0;
     }
   }
-
-
-
 
   GAME_FRAME++;
   requestAnimationFrame(animate);
