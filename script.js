@@ -1,8 +1,10 @@
 import { Player } from "./scripts/player/player.js";
 import { Enemy } from "./scripts/enemy/enemy.js";
+import { Hud } from "./scripts/HUD/hud.js";
 import { blockerObjects, saveAllBlockerPositions } from "./scripts/track/track.js";
 import { gameObjects as backgrounds } from "./scripts/background/background.js";
 import { KeyboardController } from "./scripts/control/control.js";
+
 
 /* @type {HTMLCanvasElement} */
 let BROWSER_WINDOW_WIDTH = window.innerWidth > 1000 ? 1500 : window.innerWidth;
@@ -15,6 +17,7 @@ let UNIT_OF_MOVEMENT_X = 30;
 let UNIT_OF_MOVEMENT_Y = 180;
 let SPEED = 6;
 let GAME_FRAME = 0;
+const hud = new Hud(ctx);
 const player = new Player(0);
 let PLAYER_FRAME_STEPPER = 0;
 
@@ -62,6 +65,8 @@ function animate() {
       PLAYER_FRAME_STEPPER = 0;
     }
   }
+
+  hud.draw();
 
   //render enemy
   enemy.moveX(player.playerMovementX);
