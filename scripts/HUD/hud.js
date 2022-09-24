@@ -6,6 +6,7 @@ export class Hud {
         this.posY = 5;
         this.sizeX = 35;
         this.sizeY = 35;
+        this.removeALife = false;
         this.lifes = [
             {
                 name: 'first',
@@ -33,5 +34,9 @@ export class Hud {
             this.life.src = life.src;
             this.ctx.drawImage(this.life, life.posX, life.posY, this.sizeX, this.sizeY)
         })
+
+        if (this.removeALife) {
+            this.lifes.pop();
+        }
     }
 }

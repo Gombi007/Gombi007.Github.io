@@ -28,6 +28,7 @@ let isClearBACK = true;
 let blockerPositions = saveAllBlockerPositions();
 
 function animate() {
+  hud.removeALife = false;
   isClearFORWARD = true;
   isClearBACK = true;
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -43,7 +44,6 @@ function animate() {
 
   //Test text 
   if (player.playerMovementX < -2500) {
-
     ctx.font = "30px Comic Sans MS";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
@@ -66,19 +66,24 @@ function animate() {
     }
   }
 
-  hud.draw();
-
   //render enemy
   enemy.moveX(player.playerMovementX);
   enemy.update(ENEMY_FRAME_STEEPER);
   enemy.draw(ctx);
+  if (enemy.isCollison(player.playerMovementX, player.playerMovementY) && player.playerState !== 4) {
+    hud.removeALife = true;
+    player.playerState = 4;
+  }
 
   if (enemy.movementAreaXDistanceCounter < enemy.movementAreaXDistance) {
     enemy.movementAreaXDistanceCounter++;
   } else {
     enemy.movementAreaXDistanceCounter = 0;
   }
+  //render hud
+  hud.draw(player.playerState);
 
+  //game speed
   if (GAME_FRAME % SPEED == 0) {
     if (ENEMY_FRAME_STEEPER < enemy.runForwardAnimations.length - 1) {
       ENEMY_FRAME_STEEPER++;
@@ -86,7 +91,6 @@ function animate() {
       ENEMY_FRAME_STEEPER = 0;
     }
   }
-
   GAME_FRAME++;
   requestAnimationFrame(animate);
 }
