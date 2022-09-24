@@ -1,7 +1,7 @@
-import { Player } from "./player/player.js";
-import { blockerObjects, saveAllBlockerPositions } from "./track/track.js";
-import { gameObjects as backgrounds } from "./background/background.js";
-import { KeyboardController } from "./control/control.js";
+import { Player } from "./scripts/player/player.js";
+import { blockerObjects, saveAllBlockerPositions } from "./scripts/track/track.js";
+import { gameObjects as backgrounds } from "./scripts/background/background.js";
+import { KeyboardController } from "./scripts/control/control.js";
 
 /* @type {HTMLCanvasElement} */
 let BROWSER_WINDOW_WIDTH = window.innerWidth > 1000 ? 1500 : window.innerWidth;
@@ -34,8 +34,7 @@ function animate() {
     background.draw(ctx);
   });
 
-  //Test text
-  console.log(player.playerMovementX);
+  //Test text 
   if (player.playerMovementX < -2500) {
 
     ctx.font = "30px Comic Sans MS";

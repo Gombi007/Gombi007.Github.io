@@ -19,27 +19,27 @@ class Blocker {
 }
 
 let doghouse = new Image();
-doghouse.src = './track/dog_house.png';
+doghouse.src = './pictures/track/dog_house.png';
 let doghouseBlocker = new Blocker(doghouse, 0, 400, 300, 300);
 
 let woodFence1 = new Image();
-woodFence1.src = './track/wood-fence.png';
+woodFence1.src = './pictures/track/wood-fence.png';
 let woodFenceBlocker1 = new Blocker(woodFence1, 750, 450, 300, 300);
 
 let rock1 = new Image();
-rock1.src = './track/rock1.png';
+rock1.src = './pictures/track/rock1.png';
 let rock1Blocker = new Blocker(rock1, 1500, 390, 300, 360);
 
 let woodFence2 = new Image();
-woodFence2.src = './track/wood-fence.png';
+woodFence2.src = './pictures/track/wood-fence.png';
 let woodFenceBlocker2 = new Blocker(woodFence1, 2200, 425, 300, 300);
 
 let woodFence3 = new Image();
-woodFence2.src = './track/wood-fence.png';
+woodFence2.src = './pictures/track/wood-fence.png';
 let woodFenceBlocker3 = new Blocker(woodFence1, 2650, 425, 300, 300);
 
 let endOfTrack = new Image();
-endOfTrack.src = './track/four_wood-fences.png';
+endOfTrack.src = './pictures/track/four_wood-fences.png';
 let endOfTrackBlocker = new Blocker(endOfTrack, 3600, 100, 400, 700);
 
 
