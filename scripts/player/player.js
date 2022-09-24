@@ -6,6 +6,7 @@ export class Player {
     this.audioJump = new Audio('./sounds/player/dog_jump.wav');
     this.audioBreath = new Audio('./sounds/player/dog_breath.wav');
     this.audioBite = new Audio('./sounds/player/dog_bite.wav');
+    this.audioDizzy = new Audio('./sounds/player/dog_dizzy.wav');
     this.spriteWidth = 575;
     this.spriteHeight = 523;
     this.playerMovementX = 0;
@@ -133,14 +134,14 @@ export class Player {
   }
 
   playSounds() {
-    this.playerState === 0 || this.playerState === 5 || this.playerState === 7
-      || this.playerState === 1 ? this.audioRun.pause() : null;
+    this.playerState == 0 ? this.audioRun.pause() : null;
     this.playerState === 0 ? this.audioBreath.pause() : null;
 
     this.playerState === 3 || this.playerState === 11 ? this.audioRun.play() : null;
     this.playerState === 1 ? this.audioJump.play() : null;
     this.playerState === 5 ? this.audioBreath.play() : null;
     this.playerState === 7 ? this.audioBite.play() : null;
+    this.playerState === 4 ? this.audioDizzy.play() : null;
   }
 }
 

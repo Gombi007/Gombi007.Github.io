@@ -67,12 +67,17 @@ function animate() {
   }
 
   //render enemy
-  enemy.moveX(player.playerMovementX);
+  enemy.moveX(player.playerMovementX, player.playerMovementY);
   enemy.update(ENEMY_FRAME_STEEPER);
   enemy.draw(ctx);
-  if (enemy.isCollison(player.playerMovementX, player.playerMovementY) && player.playerState !== 4) {
+  if (enemy.isCollison(player.playerState === 4)) {
     hud.removeALife = true;
     player.playerState = 4;
+    setTimeout(() => {
+      if (player.playerState === 4) {
+        player.playerState = 0;
+      }
+    }, 2000)
   }
 
   if (enemy.movementAreaXDistanceCounter < enemy.movementAreaXDistance) {

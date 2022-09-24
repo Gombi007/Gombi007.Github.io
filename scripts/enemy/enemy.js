@@ -1,10 +1,10 @@
 export class Enemy {
     constructor(enemyState) {
         this.enemyState = enemyState;
-        this.movementX = 920;
-        this.movementY = 0;
-        this.width = 100;
-        this.height = 100;
+        this.x = 920;
+        this.y = 520;
+        this.width = 150;
+        this.height = 150;
         this.enemyImage = new Image();
         this.runForwardAnimations = [
             './pictures/enemy/skeleton/skeleton-03_run_00.png',
@@ -38,8 +38,9 @@ export class Enemy {
         this.movementAreaXDistanceCounter = 0;
         this.movementAreaXDistance = 500;
     }
-    moveX(playerMovementX) {
-        this.fixedX = this.movementX + playerMovementX;
+    moveX(playerMovementX, playerMovementY) {
+        this.playerMovementY = playerMovementY;
+        this.fixedX = this.x + playerMovementX;
         if (this.movementAreaXDistanceCounter === this.movementAreaXDistance) {
             this.isStepForward = !this.isStepForward;
         }
@@ -62,11 +63,11 @@ export class Enemy {
     }
 
     draw(ctx) {
-        ctx.drawImage(this.enemyImage, this.fixedX, 520, 150, 150);
+        ctx.drawImage(this.enemyImage, this.fixedX, this.y, this.width, this.height);
     }
-    isCollison(playerMovementX, playerMovementY) {
+    isCollison(isDizzy) {
         let currentXPosition = this.fixedX - 460;
-        if (currentXPosition === 0) {
+        if (this.playerMovementY === 0 && currentXPosition === 0 && !isDizzy) {
             return true;
         }
 
