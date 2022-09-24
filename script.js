@@ -101,6 +101,7 @@ function animate() {
 
   if (hud.isGameOver()) {
     cancelAnimationFrame(gameOver);
+    restart();
   }
   //render hud
   hud.draw(player.playerState);
@@ -108,7 +109,22 @@ function animate() {
 }
 animate();
 
+function restart() {
+  let div = document.getElementById('restart');
 
+  let para = document.createElement("p");
+  para.id = 'gameOver';
+  para.innerHTML = 'Game Over'
+
+  let btn = document.createElement("button");
+  btn.innerHTML = "Restart";
+  btn.addEventListener("click", () => {
+    location.reload();
+  });
+
+  div.appendChild(para);
+  div.appendChild(btn);
+}
 
 //control
 document.getElementById("slider").addEventListener("change", (event) => {
