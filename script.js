@@ -1,4 +1,5 @@
 import { Player } from "./scripts/player/player.js";
+import { Enemy } from "./scripts/enemy/enemy.js";
 import { blockerObjects, saveAllBlockerPositions } from "./scripts/track/track.js";
 import { gameObjects as backgrounds } from "./scripts/background/background.js";
 import { KeyboardController } from "./scripts/control/control.js";
@@ -14,8 +15,12 @@ let UNIT_OF_MOVEMENT_X = 30;
 let UNIT_OF_MOVEMENT_Y = 180;
 let SPEED = 6;
 let GAME_FRAME = 0;
-let FRAME_STEPPER = 0;
 const player = new Player(0);
+let PLAYER_FRAME_STEPPER = 0;
+
+const enemy = new Enemy(0);
+let ENEMY_FRAME_STEEPER = 0;
+let ENEMY_DISTANCE = 0;
 let isClearFORWARD = true;
 let isClearBACK = true;
 let blockerPositions = saveAllBlockerPositions();
@@ -50,15 +55,35 @@ function animate() {
   });
 
   //render player
-  player.draw(ctx, FRAME_STEPPER);
-
+  player.draw(ctx, PLAYER_FRAME_STEPPER);
   if (GAME_FRAME % SPEED == 0) {
-    if (FRAME_STEPPER < player.getMaxFrameIndex()) {
-      FRAME_STEPPER++;
+    if (PLAYER_FRAME_STEPPER < player.getMaxFrameIndex()) {
+      PLAYER_FRAME_STEPPER++;
     } else {
-      FRAME_STEPPER = 0;
+      PLAYER_FRAME_STEPPER = 0;
     }
   }
+
+  //render enemy
+  enemy.draw(ctx);
+  enemy.update(ENEMY_FRAME_STEEPER);
+  enemy.moveX(ENEMY_DISTANCE, player.playerMovementX);
+  if (ENEMY_DISTANCE < 500) {
+    ENEMY_DISTANCE++;
+  } else {
+    ENEMY_DISTANCE = 0;
+  }
+
+  if (GAME_FRAME % SPEED == 0) {
+    if (ENEMY_FRAME_STEEPER < enemy.animations.length - 1) {
+      ENEMY_FRAME_STEEPER++;
+    } else {
+      ENEMY_FRAME_STEEPER = 0;
+    }
+  }
+
+
+
 
   GAME_FRAME++;
   requestAnimationFrame(animate);
