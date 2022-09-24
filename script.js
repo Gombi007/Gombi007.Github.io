@@ -149,9 +149,8 @@ const keyboard = new KeyboardController(player, {
     if (player.playerMovementY == 0) {
       player.playerState = 1;
       player.playerMovementY -= UNIT_OF_MOVEMENT_Y;
-    } else if (player.playerMovementY === (player.playerMovementY - UNIT_OF_MOVEMENT_Y)) {
-      player.playerMovementY = 0;
     }
+
   },
   ArrowDown: () => {
     player.playerState = 5;

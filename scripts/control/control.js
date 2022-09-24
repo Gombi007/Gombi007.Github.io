@@ -15,12 +15,14 @@ export class KeyboardController {
     const code = event.code;
 
     if (!(code in this.keys)) return true;
+
     if (!(code in this.timers)) {
       this.timers[code] = null;
       this.keys[code]();
-      if (this.repeat) this.timers[code] = setInterval(this.keys[code], this.repeat);
+      if (this.repeat) {
+        this.timers[code] = setInterval(this.keys[code], this.repeat);
+      }
     }
-
     return false;
   }
 
