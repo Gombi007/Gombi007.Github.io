@@ -28,6 +28,12 @@ export class Hud {
             },
         ];
     }
+    isGameOver() {
+        if (this.lifes.length === 0) {
+            return true;
+        }
+        return false;
+    }
 
     draw() {
         this.lifes.forEach(life => {

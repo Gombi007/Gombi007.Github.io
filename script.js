@@ -17,10 +17,10 @@ let UNIT_OF_MOVEMENT_X = 30;
 let UNIT_OF_MOVEMENT_Y = 180;
 let SPEED = 6;
 let GAME_FRAME = 0;
+let gameOver = null;
 const hud = new Hud(ctx);
 const player = new Player(0);
 let PLAYER_FRAME_STEPPER = 0;
-
 const enemy = new Enemy(0);
 let ENEMY_FRAME_STEEPER = 0;
 let isClearFORWARD = true;
@@ -28,6 +28,7 @@ let isClearBACK = true;
 let blockerPositions = saveAllBlockerPositions();
 
 function animate() {
+
   hud.removeALife = false;
   isClearFORWARD = true;
   isClearBACK = true;
@@ -85,8 +86,6 @@ function animate() {
   } else {
     enemy.movementAreaXDistanceCounter = 0;
   }
-  //render hud
-  hud.draw(player.playerState);
 
   //game speed
   if (GAME_FRAME % SPEED == 0) {
@@ -97,9 +96,19 @@ function animate() {
     }
   }
   GAME_FRAME++;
-  requestAnimationFrame(animate);
+
+  gameOver = requestAnimationFrame(animate);
+
+  if (hud.isGameOver()) {
+    cancelAnimationFrame(gameOver);
+  }
+  //render hud
+  hud.draw(player.playerState);
+
 }
 animate();
+
+
 
 //control
 document.getElementById("slider").addEventListener("change", (event) => {

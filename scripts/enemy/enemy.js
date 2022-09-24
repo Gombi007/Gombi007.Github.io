@@ -67,7 +67,8 @@ export class Enemy {
     }
     isCollison(isDizzy) {
         let currentXPosition = this.fixedX - 460;
-        if (this.playerMovementY === 0 && currentXPosition === 0 && !isDizzy) {
+        let isPlyarInEnemyRange = currentXPosition <= 10 && currentXPosition >= -10;
+        if (this.playerMovementY === 0 && !isDizzy && isPlyarInEnemyRange) {
             return true;
         }
 
