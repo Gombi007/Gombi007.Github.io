@@ -20,7 +20,6 @@ let PLAYER_FRAME_STEPPER = 0;
 
 const enemy = new Enemy(0);
 let ENEMY_FRAME_STEEPER = 0;
-let ENEMY_DISTANCE = 0;
 let isClearFORWARD = true;
 let isClearBACK = true;
 let blockerPositions = saveAllBlockerPositions();
@@ -65,14 +64,14 @@ function animate() {
   }
 
   //render enemy
-  enemy.moveX(ENEMY_DISTANCE, player.playerMovementX);
+  enemy.moveX(player.playerMovementX);
   enemy.update(ENEMY_FRAME_STEEPER);
   enemy.draw(ctx);
 
-  if (ENEMY_DISTANCE < 500) {
-    ENEMY_DISTANCE++;
+  if (enemy.movementAreaXDistanceCounter < enemy.movementAreaXDistance) {
+    enemy.movementAreaXDistanceCounter++;
   } else {
-    ENEMY_DISTANCE = 0;
+    enemy.movementAreaXDistanceCounter = 0;
   }
 
   if (GAME_FRAME % SPEED == 0) {

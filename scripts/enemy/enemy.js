@@ -34,16 +34,22 @@ export class Enemy {
             './pictures/enemy/skeleton/skeleton-03_run_23.png',
             './pictures/enemy/skeleton/skeleton-03_run_24.png',
         ];
-        this.movementX = 900;
+        this.movementX = 920;
         this.isStepForward = true;
+        this.movementAreaXDistanceCounter = 0;
+        this.movementAreaXDistance = 500;
     }
-    moveX(distanceCounter, playerMovementX) {
+    moveX(playerMovementX) {
         this.fixedX = this.movementX + playerMovementX;
-
-        if (distanceCounter == 0) {
+        if (this.movementAreaXDistanceCounter === this.movementAreaXDistance) {
             this.isStepForward = !this.isStepForward;
         }
-        this.fixedX += distanceCounter * 1;
+
+        if (this.isStepForward) {
+            this.fixedX += this.movementAreaXDistanceCounter * 1;
+        } else {
+            this.fixedX += this.movementAreaXDistance - this.movementAreaXDistanceCounter * 1;
+        }
     }
 
     update(enemyFrameStepper) {
