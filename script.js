@@ -1,9 +1,9 @@
-import { Player } from "./scripts/player/player.js";
-import { enemies } from "./scripts/enemy/enemy.js";
-import { Hud } from "./scripts/HUD/hud.js";
-import { blockerObjects, saveAllBlockerPositions } from "./scripts/track/track.js";
-import { gameObjects as backgrounds } from "./scripts/background/background.js";
-import { KeyboardController } from "./scripts/control/control.js";
+import { Player } from "./scripts/player.js";
+import { enemies } from "./scripts/enemy.js";
+import { Hud } from "./scripts/hud.js";
+import { blockerObjects, saveAllBlockerPositions } from "./scripts/track.js";
+import { gameObjects as backgrounds } from "./scripts/background.js";
+import { KeyboardController } from "./scripts/control.js";
 
 
 /* @type {HTMLCanvasElement} */
