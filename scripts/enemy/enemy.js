@@ -1,5 +1,5 @@
 class Enemy {
-    constructor(x, y, enemyState, movementAreaXDistance, runForwardAnimations, runBackAnimations) {
+    constructor(x, y, enemyState, movementAreaXDistance, runForwardAnimations, runBackAnimations, isOnTheGroundEnenemy, speedX) {
         this.enemyState = enemyState;
         this.x = x;
         this.y = y;
@@ -11,6 +11,8 @@ class Enemy {
         this.isStepForward = true;
         this.movementAreaXDistanceCounter = 0;
         this.movementAreaXDistance = movementAreaXDistance;
+        this.isOnTheGroundEnenemy = isOnTheGroundEnenemy;
+        this.speedX = speedX;
     }
     moveX(playerMovementX, playerMovementY) {
         this.playerMovementY = playerMovementY;
@@ -20,9 +22,9 @@ class Enemy {
         }
 
         if (this.isStepForward) {
-            this.fixedX += this.movementAreaXDistanceCounter * 1;
+            this.fixedX += this.movementAreaXDistanceCounter * this.speedX;
         } else {
-            this.fixedX += this.movementAreaXDistance - this.movementAreaXDistanceCounter * 1;
+            this.fixedX += (this.movementAreaXDistance * this.speedX) - (this.movementAreaXDistanceCounter * this.speedX);
         }
     }
 
@@ -42,8 +44,15 @@ class Enemy {
     isCollison(isDizzy) {
         let currentXPosition = this.fixedX - 460;
         let isPlyarInEnemyRange = currentXPosition <= 10 && currentXPosition >= -10;
-        if (this.playerMovementY === 0 && !isDizzy && isPlyarInEnemyRange) {
-            return true;
+
+        if (this.isOnTheGroundEnenemy) {
+            if (this.playerMovementY === 0 && !isDizzy && isPlyarInEnemyRange) {
+                return true;
+            }
+        } else {
+            if (this.playerMovementY < 0 && !isDizzy && isPlyarInEnemyRange) {
+                return true;
+            }
         }
     }
 }
@@ -76,10 +85,10 @@ let cubeBack = [
     './pictures/enemy/skeleton/skeleton-03_run_23.png',
     './pictures/enemy/skeleton/skeleton-03_run_24.png',
 ];
-let cube1 = new Enemy(920, 520, 0, 480, cubeForward, cubeBack);
-let cube2 = new Enemy(2350, 520, 0, 300, cubeForward, cubeBack);
-let cube3 = new Enemy(5900, 520, 0, 400, cubeForward, cubeBack);
-let cube4 = new Enemy(4350, 520, 0, 550, cubeForward, cubeBack);
+let cube1 = new Enemy(920, 520, 0, 480, cubeForward, cubeBack, true, 1);
+let cube2 = new Enemy(2350, 520, 0, 300, cubeForward, cubeBack, true, 1);
+let cube3 = new Enemy(5900, 520, 0, 400, cubeForward, cubeBack, true, 1);
+let cube4 = new Enemy(4350, 520, 0, 550, cubeForward, cubeBack, true, 1);
 
 //enemy ghost
 let ghostForward = [
@@ -111,6 +120,6 @@ let ghostBack = [
     './pictures/enemy/ghost/skeleton-animation_12.png',
 
 ];
-let ghost1 = new Enemy(900, 320, 0, 300, ghostForward, ghostBack);
+let ghost1 = new Enemy(300, 320, 0, 1000, ghostForward, ghostBack, false, 8);
 
 export let enemies = [cube1, cube2, cube3, cube4, ghost1];
