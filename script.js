@@ -1,5 +1,5 @@
 import { Player } from "./scripts/player/player.js";
-import { Enemy } from "./scripts/enemy/enemy.js";
+import { enemies } from "./scripts/enemy/enemy.js";
 import { Hud } from "./scripts/HUD/hud.js";
 import { blockerObjects, saveAllBlockerPositions } from "./scripts/track/track.js";
 import { gameObjects as backgrounds } from "./scripts/background/background.js";
@@ -21,7 +21,6 @@ let gameOver = null;
 const hud = new Hud(ctx);
 const player = new Player(0);
 let PLAYER_FRAME_STEPPER = 0;
-const enemy = new Enemy(0);
 let ENEMY_FRAME_STEEPER = 0;
 let isClearFORWARD = true;
 let isClearBACK = true;
@@ -68,28 +67,32 @@ function animate() {
   }
 
   //render enemy
-  enemy.moveX(player.playerMovementX, player.playerMovementY);
-  enemy.update(ENEMY_FRAME_STEEPER);
-  enemy.draw(ctx);
-  if (enemy.isCollison(player.playerState === 4)) {
-    hud.removeALife = true;
-    player.playerState = 4;
-    setTimeout(() => {
-      if (player.playerState === 4) {
-        player.playerState = 0;
-      }
-    }, 2000)
-  }
 
-  if (enemy.movementAreaXDistanceCounter < enemy.movementAreaXDistance) {
-    enemy.movementAreaXDistanceCounter++;
-  } else {
-    enemy.movementAreaXDistanceCounter = 0;
-  }
+  enemies.forEach(enemy => {
+    enemy.moveX(player.playerMovementX, player.playerMovementY);
+    enemy.update(ENEMY_FRAME_STEEPER);
+    enemy.draw(ctx);
+    if (enemy.isCollison(player.playerState === 4)) {
+      hud.removeALife = true;
+      player.playerState = 4;
+      setTimeout(() => {
+        if (player.playerState === 4) {
+          player.playerState = 0;
+        }
+      }, 2000)
+    }
+
+    if (enemy.movementAreaXDistanceCounter < enemy.movementAreaXDistance) {
+      enemy.movementAreaXDistanceCounter++;
+    } else {
+      enemy.movementAreaXDistanceCounter = 0;
+    }
+  });
+
 
   //game speed
   if (GAME_FRAME % SPEED == 0) {
-    if (ENEMY_FRAME_STEEPER < enemy.runForwardAnimations.length - 1) {
+    if (ENEMY_FRAME_STEEPER < 10) {
       ENEMY_FRAME_STEEPER++;
     } else {
       ENEMY_FRAME_STEEPER = 0;

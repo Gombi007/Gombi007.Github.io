@@ -1,8 +1,8 @@
-export class Enemy {
-    constructor(enemyState) {
+class Enemy {
+    constructor(x, y, enemyState, movementAreaXDistance) {
         this.enemyState = enemyState;
-        this.x = 920;
-        this.y = 520;
+        this.x = x;
+        this.y = y;
         this.width = 150;
         this.height = 150;
         this.enemyImage = new Image();
@@ -36,7 +36,7 @@ export class Enemy {
         ];
         this.isStepForward = true;
         this.movementAreaXDistanceCounter = 0;
-        this.movementAreaXDistance = 500;
+        this.movementAreaXDistance = movementAreaXDistance;
     }
     moveX(playerMovementX, playerMovementY) {
         this.playerMovementY = playerMovementY;
@@ -71,7 +71,12 @@ export class Enemy {
         if (this.playerMovementY === 0 && !isDizzy && isPlyarInEnemyRange) {
             return true;
         }
-
     }
-
 }
+
+let enemy1 = new Enemy(920, 520, 0, 480);
+let enemy2 = new Enemy(2350, 520, 0, 300);
+let enemy3 = new Enemy(5900, 520, 0, 400);
+let enemy4 = new Enemy(4350, 520, 0, 550);
+
+export let enemies = [enemy1, enemy2, enemy3, enemy4];
