@@ -16,7 +16,16 @@ export class KeyboardController {
 
     if (!(code in this.keys)) return true;
 
-    if (!(code in this.timers)) {
+    //prevent longpress jump button, player can jump only once
+    if (event.repeat && code === 'ArrowUp') {
+      this.player.playerMovementY = 0;
+      this.player.playerState = 0;
+    }
+    if (!event.repeat && code === 'ArrowUp') {
+      this.keys[code]();
+    }
+
+    if (!(code in this.timers) && code !== 'ArrowUp') {
       this.timers[code] = null;
       this.keys[code]();
       if (this.repeat) {
@@ -25,6 +34,7 @@ export class KeyboardController {
     }
     return false;
   }
+
 
   keyup(event) {
     const code = event.code;
