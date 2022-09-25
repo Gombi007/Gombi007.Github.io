@@ -44,7 +44,7 @@ function animate() {
   });
 
   //Test text 
-  if (player.playerMovementX < -2500) {
+  if (player.playerMovementX < -7500) {
     ctx.font = "30px Comic Sans MS";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
