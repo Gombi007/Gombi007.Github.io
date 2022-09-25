@@ -92,7 +92,7 @@ function animate() {
 
   //game speed
   if (GAME_FRAME % SPEED == 0) {
-    if (ENEMY_FRAME_STEEPER < 10) {
+    if (ENEMY_FRAME_STEEPER < 11) {
       ENEMY_FRAME_STEEPER++;
     } else {
       ENEMY_FRAME_STEEPER = 0;
