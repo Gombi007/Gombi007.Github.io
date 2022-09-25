@@ -120,6 +120,7 @@ let ghostBack = [
     './pictures/enemy/ghost/skeleton-animation_12.png',
 
 ];
-let ghost1 = new Enemy(300, 320, 0, 1000, ghostForward, ghostBack, false, 8);
+let ghost1 = new Enemy(4000, 320, 0, 500, ghostForward, ghostBack, false, 8);
+let ghost2 = new Enemy(1400, 320, 0, 520, ghostForward, ghostBack, false, 5);
 
-export let enemies = [cube1, cube2, cube3, cube4, ghost1];
+export let enemies = [cube1, cube2, cube3, cube4, ghost1, ghost2];
